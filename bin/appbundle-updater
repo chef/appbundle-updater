@@ -214,7 +214,7 @@ class Updater
 
   def run(cmd)
     ENV_KEYS.each { |key| ENV["_YOLO_#{key}"] = ENV[key]; ENV.delete(key) }
-    ENV['PATH'] = "#{bin_dir}:#{ENV['_YOLO_PATH']}"
+    ENV['PATH'] = bin_dir + File::PATH_SEPARATOR + ENV['_YOLO_PATH']
     puts "    running: #{cmd}"
     output = `#{cmd} 2>&1`   #FIXME: bash/zsh-ism, will not work on csh
     unless $?.exited? && $?.exitstatus == 0
