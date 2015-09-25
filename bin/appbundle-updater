@@ -132,6 +132,7 @@ class Updater
   def initialize(options)
     @app = options[:app]
     @ref = options[:ref]
+    @tarball = options[:tarball]
   end
 
   def start
@@ -143,18 +144,29 @@ class Updater
     banner("Cleaning #{app} checkout")
     app_dir.rmtree if app_dir.directory?
 
-    git_url = "https://github.com/#{app.repo}/archive/#{ref}.tar.gz"
-    banner("Extracting #{app} from #{git_url}")
-    Dir.chdir(chefdk.join("embedded/apps")) do
-      Tempfile.open('appbundle-updater') do |tempfile|
-        open(git_url) do |uri|
-          tempfile.write(uri.read)
+    if ( @tarball )
+      git_url = "https://github.com/#{app.repo}/archive/#{ref}.tar.gz"
+      banner("Extracting #{app} from #{git_url}")
+      Dir.chdir(chefdk.join("embedded/apps")) do
+        Tempfile.open('appbundle-updater') do |tempfile|
+          open(git_url) do |uri|
+            tempfile.write(uri.read)
+          end
+          tempfile.close
+          extract_tgz(tempfile.path)
         end
-        tempfile.close
-        extract_tgz(tempfile.path)
+        base = File.basename app.repo
+        FileUtils.mv "#{base}-#{ref}".gsub(/\//, "-"), "#{app.name}"
       end
-      base = File.basename app.repo
-      FileUtils.mv "#{base}-#{ref}", "#{app.name}"
+    else
+      git_url = "https://github.com/#{app.repo}.git"
+      banner("Cloning #{app} from #{git_url}")
+      run("git clone #{git_url} #{app_dir}")
+
+      banner("Checking out #{app} to #{ref}")
+      Dir.chdir(app_dir) do
+        run("git checkout #{ref}")
+      end
     end
 
     banner("Installing dependencies")
@@ -217,6 +229,9 @@ class CLI
     @options = Hash.new
     @parser = OptionParser.new { |opts|
       opts.banner = "Usage: #{$0} PROJECT APP_NAME GIT_REF"
+      opts.on("-t", "--[no-]tarball", "Do a tarball download instead of git clone") do |t|
+        options[:tarball] = t
+      end
       opts.on("-h", "--help", "Prints this help") do
         puts opts
         exit
