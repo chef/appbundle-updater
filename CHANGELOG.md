@@ -1,11 +1,18 @@
 # Change Log
 
-## [Unreleased](https://github.com/chef/appbundle-updater/tree/HEAD)
-
-[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.1.0...HEAD)
+## [v0.2.1](https://github.com/chef/appbundle-updater/tree/v0.2.1) (2015-09-25)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.0...v0.2.1)
 
 **Merged pull requests:**
 
+- fix obvious bug in PATH on windows [\#6](https://github.com/chef/appbundle-updater/pull/6) ([lamont-granquist](https://github.com/lamont-granquist))
+
+## [v0.2.0](https://github.com/chef/appbundle-updater/tree/v0.2.0) (2015-09-25)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.1.0...v0.2.0)
+
+**Merged pull requests:**
+
+- add changelog, move dev gems Gemfile [\#5](https://github.com/chef/appbundle-updater/pull/5) ([lamont-granquist](https://github.com/lamont-granquist))
 - add --github option for pulling forks [\#4](https://github.com/chef/appbundle-updater/pull/4) ([lamont-granquist](https://github.com/lamont-granquist))
 - Suppress command output for successful commands [\#3](https://github.com/chef/appbundle-updater/pull/3) ([lamont-granquist](https://github.com/lamont-granquist))
 - introduce --tarball option, default back to git clone [\#2](https://github.com/chef/appbundle-updater/pull/2) ([lamont-granquist](https://github.com/lamont-granquist))
