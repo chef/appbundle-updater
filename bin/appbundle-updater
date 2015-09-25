@@ -48,6 +48,8 @@ TAR_LONGLINK = '././@LongLink'
 # pure ruby `tar xzf`, handles longlinks and directories ending in '/'
 # (http://stackoverflow.com/a/31310593/506908)
 def extract_tgz(file, destination = '.')
+  # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
+  # THE RUBY STDLIB BY DESIGN
   Gem::Package::TarReader.new( Zlib::GzipReader.open file ) do |tar|
     dest = nil
     tar.each do |entry|
@@ -127,12 +129,13 @@ CHEFDK_APPS = [
 ].freeze
 
 class Updater
-  attr_reader :app, :ref
+  attr_reader :app, :ref, :tarball, :repo
 
   def initialize(options)
     @app = options[:app]
     @ref = options[:ref]
     @tarball = options[:tarball]
+    @repo = options[:repo] || @app.repo
   end
 
   def start
@@ -143,8 +146,10 @@ class Updater
     banner("Cleaning #{app} checkout")
     app_dir.rmtree if app_dir.directory?
 
-    if ( @tarball )
-      git_url = "https://github.com/#{app.repo}/archive/#{ref}.tar.gz"
+    if ( tarball )
+      # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
+      # THE RUBY STDLIB BY DESIGN
+      git_url = "https://github.com/#{repo}/archive/#{ref}.tar.gz"
       banner("Extracting #{app} from #{git_url}")
       Dir.chdir(chefdk.join("embedded/apps")) do
         Tempfile.open('appbundle-updater') do |tempfile|
@@ -154,11 +159,11 @@ class Updater
           tempfile.close
           extract_tgz(tempfile.path)
         end
-        base = File.basename app.repo
+        base = File.basename repo
         FileUtils.mv "#{base}-#{ref}".gsub(/\//, "-"), "#{app.name}"
       end
     else
-      git_url = "https://github.com/#{app.repo}.git"
+      git_url = "https://github.com/#{repo}.git"
       banner("Cloning #{app} from #{git_url}")
       run("git clone #{git_url} #{app_dir}")
 
@@ -233,6 +238,9 @@ class CLI
       opts.banner = "Usage: #{$0} PROJECT APP_NAME GIT_REF"
       opts.on("-t", "--[no-]tarball", "Do a tarball download instead of git clone") do |t|
         options[:tarball] = t
+      end
+      opts.on("-g", "--github REPO", "Github repo (e.g. chef/chef) to pull from") do |g|
+        options[:repo] = g
       end
       opts.on("-h", "--help", "Prints this help") do
         puts opts
