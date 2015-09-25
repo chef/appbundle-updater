@@ -140,7 +140,6 @@ class Updater
       abort "#{$0} needs to be run as root user or with sudo"
     end
 
-    ruby("-rpp -e 'pp ENV'")
     banner("Cleaning #{app} checkout")
     app_dir.rmtree if app_dir.directory?
 
@@ -212,7 +211,10 @@ class Updater
     ENV_KEYS.each { |key| ENV["_YOLO_#{key}"] = ENV[key]; ENV.delete(key) }
     ENV['PATH'] = "#{bin_dir}:#{ENV['_YOLO_PATH']}"
     puts "    running: #{cmd}"
-    system(cmd) or raise("Command [#{cmd}] failed!")
+    output = `#{cmd} 2>&1`   #FIXME: bash/zsh-ism, will not work on csh
+    unless $?.exited? && $?.exitstatus == 0
+      raise("Command [#{cmd}] failed!\n\n---BEGIN OUTPUT--\n#{output}\n---END OUTPUT--\n")
+    end
     ENV_KEYS.each { |key| ENV[key] = ENV.delete("_YOLO_#{key}") }
   end
 
