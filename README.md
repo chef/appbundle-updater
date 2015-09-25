@@ -54,6 +54,27 @@ Windows users from PowerShell use the bat file:
 
 If you don't want "master" you can use any other git tag/branch/sha/etc that git understands.
 
+## Using a GitHub Fork
+
+By default this gem clones from the official repos from the software. To override and point
+at at fork use the `--github`` option on the command-line:
+
+```ruby
+sudo appbundle-updater chef chef lcg/cool-feature --github lamont-granquist/chef
+```
+
+## Using a GitHub tarball instead of a git clone
+
+Using the `--tarball` method will not use `git clone` and will not require the git binary being
+installed on the system.  By using this command the whole functionality should run in pure ruby,
+be portable across all operating systems that omnibus-chef is ported to, and should only use
+ruby stdlib functions.  The disadvantage is that you do now wind up with a real git checkout
+in the apps directory, just an extracted snapshot.
+
+```ruby
+sudo appbundle-updater chef chef master --tarball
+```
+
 ## Execution and Target rubies
 
 This does not need to be installed into the embedded ruby that you are doing the update on.
