@@ -140,7 +140,6 @@ class Updater
       abort "#{$0} needs to be run as root user or with sudo"
     end
 
-    ruby("-rpp -e 'pp ENV'")
     banner("Cleaning #{app} checkout")
     app_dir.rmtree if app_dir.directory?
 
