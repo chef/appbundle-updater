@@ -19,5 +19,5 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "rake"
+  # This Gem DELIBERATELY has no dependencies other than the ruby stdlib
 end
