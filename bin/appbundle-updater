@@ -43,11 +43,41 @@ def bin_dir
   chefdk.join("embedded/bin")
 end
 
+ENV_KEYS = %w[
+    BUNDLE_BIN_PATH BUNDLE_GEMFILE GEM_HOME GEM_PATH GEM_ROOT IRBRC MY_RUBY_HOME RUBYLIB RUBYOPT RUBY_ENGINE RUBY_ROOT RUBY_VERSION _ORIGINAL_GEM_PATH PATH
+].freeze
+
+def run(cmd)
+  ENV_KEYS.each { |key| ENV["_YOLO_#{key}"] = ENV[key]; ENV.delete(key) }
+  ENV['PATH'] = bin_dir.to_s + File::PATH_SEPARATOR + ENV['_YOLO_PATH']
+  puts "    running: #{cmd}"
+  output = `#{cmd} 2>&1`   #FIXME: bash/zsh-ism, will not work on csh
+  unless $?.exited? && $?.exitstatus == 0
+    raise("Command [#{cmd}] failed!\n\n---BEGIN OUTPUT--\n#{output}\n---END OUTPUT--\n")
+  end
+  ENV_KEYS.each { |key| ENV[key] = ENV.delete("_YOLO_#{key}") }
+end
+
 TAR_LONGLINK = '././@LongLink'
+
+def extract_tgz(file, destination = '.')
+  if windows?
+    extract_tgz_windows(file, destination)
+  else
+    extract_tgz_unix(file, destination)
+  end
+end
+
+# our windows omnibus packages all are guaranteed to have tar
+def extract_tgz_windows(file, destination = '.')
+  Dir.chdir(app_dir) do
+    run("tar xf #{file} --directory #{destination}")
+  end
+end
 
 # pure ruby `tar xzf`, handles longlinks and directories ending in '/'
 # (http://stackoverflow.com/a/31310593/506908)
-def extract_tgz(file, destination = '.')
+def extract_tgz_unix(file, destination = '.')
   # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
   # THE RUBY STDLIB BY DESIGN
   Gem::Package::TarReader.new( Zlib::GzipReader.open file ) do |tar|
@@ -194,9 +224,6 @@ class Updater
   end
 
   private
-  ENV_KEYS = %w[
-    BUNDLE_BIN_PATH BUNDLE_GEMFILE GEM_HOME GEM_PATH GEM_ROOT IRBRC MY_RUBY_HOME RUBYLIB RUBYOPT RUBY_ENGINE RUBY_ROOT RUBY_VERSION _ORIGINAL_GEM_PATH PATH
-  ].freeze
 
   def app_dir
     chefdk.join("embedded/apps/#{app}")
@@ -210,17 +237,6 @@ class Updater
     ruby = bin_dir.join("ruby").to_s.tap { |p| p.concat(".exe") if windows? }
 
     run([ruby, script].join(" "))
-  end
-
-  def run(cmd)
-    ENV_KEYS.each { |key| ENV["_YOLO_#{key}"] = ENV[key]; ENV.delete(key) }
-    ENV['PATH'] = bin_dir.to_s + File::PATH_SEPARATOR + ENV['_YOLO_PATH']
-    puts "    running: #{cmd}"
-    output = `#{cmd} 2>&1`   #FIXME: bash/zsh-ism, will not work on csh
-    unless $?.exited? && $?.exitstatus == 0
-      raise("Command [#{cmd}] failed!\n\n---BEGIN OUTPUT--\n#{output}\n---END OUTPUT--\n")
-    end
-    ENV_KEYS.each { |key| ENV[key] = ENV.delete("_YOLO_#{key}") }
   end
 
 end

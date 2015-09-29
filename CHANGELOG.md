@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.2.2](https://github.com/chef/appbundle-updater/tree/v0.2.2) (2015-09-25)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.1...v0.2.2)
+
+**Merged pull requests:**
+
+- fixing syntax error \(derp\) [\#7](https://github.com/chef/appbundle-updater/pull/7) ([lamont-granquist](https://github.com/lamont-granquist))
+
 ## [v0.2.1](https://github.com/chef/appbundle-updater/tree/v0.2.1) (2015-09-25)
 [Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.0...v0.2.1)
 
