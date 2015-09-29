@@ -1,5 +1,13 @@
 # Change Log
 
+## [Unreleased](https://github.com/chef/appbundle-updater/tree/HEAD)
+
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.2...HEAD)
+
+**Merged pull requests:**
+
+- fix windows via using tar.exe [\#8](https://github.com/chef/appbundle-updater/pull/8) ([lamont-granquist](https://github.com/lamont-granquist))
+
 ## [v0.2.2](https://github.com/chef/appbundle-updater/tree/v0.2.2) (2015-09-25)
 [Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.1...v0.2.2)
 
