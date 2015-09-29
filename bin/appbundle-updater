@@ -60,22 +60,9 @@ end
 
 TAR_LONGLINK = '././@LongLink'
 
-def extract_tgz(file, destination = '.')
-  if windows?
-    extract_tgz_windows(file, destination)
-  else
-    extract_tgz_unix(file, destination)
-  end
-end
-
-# our windows omnibus packages all are guaranteed to have tar
-def extract_tgz_windows(file, destination = '.')
-  run("tar xf #{file} --directory #{destination}")
-end
-
 # pure ruby `tar xzf`, handles longlinks and directories ending in '/'
 # (http://stackoverflow.com/a/31310593/506908)
-def extract_tgz_unix(file, destination = '.')
+def extract_tgz(file, destination = '.')
   # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
   # THE RUBY STDLIB BY DESIGN
   Gem::Package::TarReader.new( Zlib::GzipReader.open file ) do |tar|
@@ -181,6 +168,7 @@ class Updater
       banner("Extracting #{app} from #{git_url}")
       Dir.chdir(chefdk.join("embedded/apps")) do
         Tempfile.open('appbundle-updater') do |tempfile|
+          tempfile.binmode
           open(git_url) do |uri|
             tempfile.write(uri.read)
           end
