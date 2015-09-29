@@ -70,9 +70,7 @@ end
 
 # our windows omnibus packages all are guaranteed to have tar
 def extract_tgz_windows(file, destination = '.')
-  Dir.chdir(app_dir) do
-    run("tar xf #{file} --directory #{destination}")
-  end
+  run("tar xf #{file} --directory #{destination}")
 end
 
 # pure ruby `tar xzf`, handles longlinks and directories ending in '/'
