@@ -7,6 +7,11 @@ Helper to update Chef and Chef-DK appbundle'd apps inside of an omnibus bundle.
 * A ChefDK or Chef Client installation in the standard location.
 * You need to have the `git` command in your PATH.
 
+## Supported Distros
+
+* Tested on Ubuntu and Windows
+* Should work on any omnibus-chef install (Debian, RHEL, SuSE, Solaris, AIX, Custom Builds, etc)
+
 ## Usage Examples
 
 Install as a gem:
