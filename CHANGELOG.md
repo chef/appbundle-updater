@@ -2,7 +2,18 @@
 
 ## [Unreleased](https://github.com/chef/appbundle-updater/tree/HEAD)
 
-[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.2...HEAD)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.4...HEAD)
+
+**Merged pull requests:**
+
+- correct windows fix is setting binmode [\#10](https://github.com/chef/appbundle-updater/pull/10) ([lamont-granquist](https://github.com/lamont-granquist))
+- remove stray Dir.chdir call on windows [\#9](https://github.com/chef/appbundle-updater/pull/9) ([lamont-granquist](https://github.com/lamont-granquist))
+
+## [v0.2.4](https://github.com/chef/appbundle-updater/tree/v0.2.4) (2015-09-29)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.3...v0.2.4)
+
+## [v0.2.3](https://github.com/chef/appbundle-updater/tree/v0.2.3) (2015-09-29)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.2...v0.2.3)
 
 **Merged pull requests:**
 
