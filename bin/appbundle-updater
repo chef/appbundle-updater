@@ -98,6 +98,13 @@ App = Struct.new(:name, :repo, :bundle_without, :install_command) do
   end
 end
 
+chef_install_command =
+  if windows?
+    "#{bin_dir.join("gem")} build chef-windows.gemspec & #{bin_dir.join("gem")} install chef*.gem --no-ri --no-rdoc"
+  else
+    "#{bin_dir.join("rake")} install"
+  end
+
 CHEFDK_APPS = [
   App.new(
     "berkshelf",
@@ -109,7 +116,7 @@ CHEFDK_APPS = [
     "chef",
     "chef/chef",
     "server docgen test development",
-    "#{bin_dir.join("rake")} install",
+    chef_install_command,
   ),
   App.new(
     "chef-dk",
