@@ -168,6 +168,12 @@ class Updater
     banner("Cleaning #{app} checkout")
     app_dir.rmtree if app_dir.directory?
 
+    top_dir = chefdk.join("embedded/apps")
+    unless File.exist?(top_dir)
+      banner("Creating #{top_dir} directory")
+      FileUtils.mkdir_p top_dir
+    end
+
     if ( tarball )
       # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
       # THE RUBY STDLIB BY DESIGN
