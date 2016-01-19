@@ -1,11 +1,11 @@
 # Change Log
 
-## [Unreleased](https://github.com/chef/appbundle-updater/tree/HEAD)
-
-[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.7...HEAD)
+## [v0.2.8](https://github.com/chef/appbundle-updater/tree/v0.2.8) (2016-01-19)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.7...v0.2.8)
 
 **Merged pull requests:**
 
+- install compilers and git on rhel/debian [\#12](https://github.com/chef/appbundle-updater/pull/12) ([lamont-granquist](https://github.com/lamont-granquist))
 - fix for chef-12.6.0 and version bump [\#11](https://github.com/chef/appbundle-updater/pull/11) ([lamont-granquist](https://github.com/lamont-granquist))
 
 ## [v0.2.7](https://github.com/chef/appbundle-updater/tree/v0.2.7) (2015-12-30)
