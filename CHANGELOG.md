@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.2.9](https://github.com/chef/appbundle-updater/tree/v0.2.9) (2016-01-19)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.8...v0.2.9)
+
+**Merged pull requests:**
+
+- fix gcc/build-essential install to not prompt [\#13](https://github.com/chef/appbundle-updater/pull/13) ([lamont-granquist](https://github.com/lamont-granquist))
+
 ## [v0.2.8](https://github.com/chef/appbundle-updater/tree/v0.2.8) (2016-01-19)
 [Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.7...v0.2.8)
 
