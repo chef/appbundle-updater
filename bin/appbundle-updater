@@ -65,6 +65,7 @@ def install_package_dependencies
   case `ohai platform_family`
   when /debian/
     ENV["DEBIAN_FRONTEND"] = "noninteractive"
+    run("apt-get -y update")
     run("apt-get -q -y install build-essential git")
   when /fedora/, /rhel/
     run("yum -y install gcc make git")
