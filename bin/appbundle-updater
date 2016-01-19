@@ -60,6 +60,18 @@ end
 
 TAR_LONGLINK = '././@LongLink'
 
+def install_package_dependencies
+  banner("Installing Packages")
+  case `ohai platform_family`
+  when /debian/
+    run("apt-get install build-essential git")
+  when /fedora/, /rhel/
+    run("yum install gcc make git")
+  else
+    puts "i do not know how to install compilers and git on this platform..."
+  end
+end
+
 # pure ruby `tar xzf`, handles longlinks and directories ending in '/'
 # (http://stackoverflow.com/a/31310593/506908)
 def extract_tgz(file, destination = '.')
@@ -173,6 +185,8 @@ class Updater
       banner("Creating #{top_dir} directory")
       FileUtils.mkdir_p top_dir
     end
+
+    install_package_dependencies
 
     if ( tarball )
       # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
