@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.2.10](https://github.com/chef/appbundle-updater/tree/v0.2.10) (2016-01-19)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.9...v0.2.10)
+
+**Merged pull requests:**
+
+- Need to run apt-get update before installing [\#14](https://github.com/chef/appbundle-updater/pull/14) ([lamont-granquist](https://github.com/lamont-granquist))
+
 ## [v0.2.9](https://github.com/chef/appbundle-updater/tree/v0.2.9) (2016-01-19)
 [Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.8...v0.2.9)
 
