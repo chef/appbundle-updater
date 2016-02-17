@@ -69,6 +69,8 @@ def install_package_dependencies
     run("apt-get -q -y install build-essential git")
   when /fedora/, /rhel/
     run("yum -y install gcc make git")
+  when /suse/
+    run("zypper --non-interactive install gcc make git")
   else
     puts "i do not know how to install compilers and git on this platform..."
   end
