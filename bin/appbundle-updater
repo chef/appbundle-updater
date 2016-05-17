@@ -62,7 +62,7 @@ TAR_LONGLINK = '././@LongLink'
 
 def install_package_dependencies
   banner("Installing Packages")
-  case `ohai platform_family`
+  case `#{bin_dir}/ohai platform_family`
   when /debian/
     ENV["DEBIAN_FRONTEND"] = "noninteractive"
     run("apt-get -y update")
