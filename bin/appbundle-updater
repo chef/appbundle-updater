@@ -43,6 +43,8 @@ def bin_dir
   chefdk.join("embedded/bin")
 end
 
+ENV['PATH'] = ( [ bin_dir ] + ENV['PATH'].split(File::PATH_SEPARATOR) ).join(File::PATH_SEPARATOR)
+
 ENV_KEYS = %w[
     BUNDLE_BIN_PATH BUNDLE_GEMFILE GEM_HOME GEM_PATH GEM_ROOT IRBRC MY_RUBY_HOME RUBYLIB RUBYOPT RUBY_ENGINE RUBY_ROOT RUBY_VERSION _ORIGINAL_GEM_PATH PATH
 ].freeze
@@ -62,7 +64,7 @@ TAR_LONGLINK = '././@LongLink'
 
 def install_package_dependencies
   banner("Installing Packages")
-  case `ohai platform_family`
+  case `#{bin_dir}/ohai platform_family`
   when /debian/
     ENV["DEBIAN_FRONTEND"] = "noninteractive"
     run("apt-get -y update")
