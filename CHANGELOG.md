@@ -1,5 +1,19 @@
 # Change Log
 
+## [v0.2.12](https://github.com/chef/appbundle-updater/tree/v0.2.12) (2016-05-17)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.11...v0.2.12)
+
+**Merged pull requests:**
+
+- fix PATH issues [\#16](https://github.com/chef/appbundle-updater/pull/16) ([lamont-granquist](https://github.com/lamont-granquist))
+
+## [v0.2.11](https://github.com/chef/appbundle-updater/tree/v0.2.11) (2016-02-17)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.10...v0.2.11)
+
+**Merged pull requests:**
+
+- add support for installing git stuff on suse [\#15](https://github.com/chef/appbundle-updater/pull/15) ([lamont-granquist](https://github.com/lamont-granquist))
+
 ## [v0.2.10](https://github.com/chef/appbundle-updater/tree/v0.2.10) (2016-01-19)
 [Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.9...v0.2.10)
 
