@@ -68,12 +68,12 @@ def install_package_dependencies
   when /debian/
     ENV["DEBIAN_FRONTEND"] = "noninteractive"
     run("apt-get -y update")
-    run("apt-get -q -y install build-essential git zlib1g-dev")
+    run("apt-get -q -y install build-essential git liblzma-dev zlib1g-dev")
   when /fedora/, /rhel/
     if File.exist?("/usr/bin/dnf")
-      run("dnf -y install gcc make git zlib-devel")
+      run("dnf -y install gcc make git zlib-devel lzma-devel")
     else
-      run("yum -y install gcc make git zlib-devel")
+      run("yum -y install gcc make git zlib-devel lzma-devel")
     end
   when /suse/
     run("zypper --non-interactive install gcc make git")
