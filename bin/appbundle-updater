@@ -68,9 +68,13 @@ def install_package_dependencies
   when /debian/
     ENV["DEBIAN_FRONTEND"] = "noninteractive"
     run("apt-get -y update")
-    run("apt-get -q -y install build-essential git")
+    run("apt-get -q -y install build-essential git zlib1g-dev")
   when /fedora/, /rhel/
-    run("yum -y install gcc make git")
+    if File.exist?("/usr/bin/dnf")
+      run("dnf -y install gcc make git zlib-devel")
+    else
+      run("yum -y install gcc make git zlib-devel")
+    end
   when /suse/
     run("zypper --non-interactive install gcc make git")
   else
