@@ -1,5 +1,13 @@
 # Change Log
 
+## [Unreleased](https://github.com/chef/appbundle-updater/tree/HEAD)
+
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.12...HEAD)
+
+**Merged pull requests:**
+
+- add some dnf and zlib-dev [\#17](https://github.com/chef/appbundle-updater/pull/17) ([lamont-granquist](https://github.com/lamont-granquist))
+
 ## [v0.2.12](https://github.com/chef/appbundle-updater/tree/v0.2.12) (2016-05-17)
 [Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.11...v0.2.12)
 
