@@ -1,8 +1,14 @@
 # Change Log
 
-## [Unreleased](https://github.com/chef/appbundle-updater/tree/HEAD)
+## [0.4.0](https://github.com/chef/appbundle-updater/tree/0.4.0) (2016-09-08)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.3.0...0.4.0)
 
-[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.12...HEAD)
+**Merged pull requests:**
+
+- Update only runtime chef dependencies [\#18](https://github.com/chef/appbundle-updater/pull/18) ([jkeiser](https://github.com/jkeiser))
+
+## [v0.3.0](https://github.com/chef/appbundle-updater/tree/v0.3.0) (2016-06-28)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.2.12...v0.3.0)
 
 **Merged pull requests:**
 
