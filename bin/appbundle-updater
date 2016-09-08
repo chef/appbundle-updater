@@ -137,13 +137,15 @@ CHEFDK_APPS = [
   App.new(
     "chef",
     "chef/chef",
-    "server docgen test development",
+    # from chef/version_policy.rb INSTALL_WITHOUT_GROUPS
+    "changelog development docgen guard integration maintenance tools travis style",
     chef_install_command,
   ),
   App.new(
     "chef-dk",
     "chef/chef-dk",
-    "dev test development",
+    # from chef-dk/version_policy.rb INSTALL_WITHOUT_GROUPS
+    "changelog compat_testing development docgen guard integration maintenance test tools travis style",
     "#{bin_dir.join("rake")} install",
   ),
   App.new(
