@@ -163,7 +163,7 @@ CHEFDK_APPS = [
   App.new(
     "ohai",
     "chef/ohai",
-    "test development",
+    "test",
     "#{bin_dir.join("rake")} install",
   ),
   App.new(
