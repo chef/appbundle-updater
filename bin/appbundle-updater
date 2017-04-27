@@ -161,6 +161,11 @@ CHEFDK_APPS = [
     "#{bin_dir.join("rake")} install",
   ),
   App.new(
+    "inspec",
+    "chef/inspec",
+    "test integration tools maintenance deploy",
+    "#{bin_dir.join("rake")} install"),
+  App.new(
     "ohai",
     "chef/ohai",
     "test",
