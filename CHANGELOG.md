@@ -1,7 +1,21 @@
 # Change Log
 
-## [0.4.0](https://github.com/chef/appbundle-updater/tree/0.4.0) (2016-09-08)
-[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.3.0...0.4.0)
+## [0.5.0](https://github.com/chef/appbundle-updater/tree/0.5.0) (2017-04-28)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.4.1...0.5.0)
+
+**Merged pull requests:**
+
+- Add support for inspec [\#21](https://github.com/chef/appbundle-updater/pull/21) ([adamleff](https://github.com/adamleff))
+
+## [v0.4.1](https://github.com/chef/appbundle-updater/tree/v0.4.1) (2017-02-24)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.4.0...v0.4.1)
+
+**Merged pull requests:**
+
+- ohai definition needs development installed [\#20](https://github.com/chef/appbundle-updater/pull/20) ([lamont-granquist](https://github.com/lamont-granquist))
+
+## [v0.4.0](https://github.com/chef/appbundle-updater/tree/v0.4.0) (2016-09-08)
+[Full Changelog](https://github.com/chef/appbundle-updater/compare/v0.3.0...v0.4.0)
 
 **Merged pull requests:**
 
