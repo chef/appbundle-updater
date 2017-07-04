@@ -155,6 +155,12 @@ CHEFDK_APPS = [
     "#{bin_dir.join("rake")} install",
   ),
   App.new(
+     'cookstyle',
+     'chef/cookstyle',
+     nil,
+    "#{bin_dir.join("rake")} install",
+  ),
+  App.new(
     "foodcritic",
     "acrmp/foodcritic",
     nil,

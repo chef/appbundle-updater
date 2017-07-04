@@ -34,6 +34,7 @@ Updating various other softwares in /opt/chefdk bundle to master:
 ```
 sudo appbundle-updater chefdk berkshelf master
 sudo appbundle-updater chefdk chef-vault master
+sudo appbundle-updater chefdk cookstyle master
 sudo appbundle-updater chefdk ohai master
 sudo appbundle-updater chefdk foodcritic master
 sudo appbundle-updater chefdk test-kitchen master
