@@ -69,7 +69,7 @@ def install_package_dependencies
     ENV["DEBIAN_FRONTEND"] = "noninteractive"
     run("apt-get -y update")
     run("apt-get -q -y install build-essential git liblzma-dev zlib1g-dev")
-  when /fedora/, /rhel/
+  when /fedora/, /rhel/, /amazon/
     if File.exist?("/usr/bin/dnf")
       run("dnf -y install gcc make git zlib-devel lzma-devel")
     else
