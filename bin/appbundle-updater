@@ -162,7 +162,7 @@ CHEFDK_APPS = [
   ),
   App.new(
     "foodcritic",
-    "acrmp/foodcritic",
+    "foodcritic/foodcritic",
     nil,
     "#{bin_dir.join("rake")} install",
   ),
