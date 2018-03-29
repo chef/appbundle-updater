@@ -71,12 +71,12 @@ def install_package_dependencies
     run("apt-get -q -y install build-essential git liblzma-dev zlib1g-dev")
   when /fedora/, /rhel/, /amazon/
     if File.exist?("/usr/bin/dnf")
-      run("dnf -y install gcc make git zlib-devel lzma-devel")
+      run("dnf -y install gcc gcc-c++ make git zlib-devel lzma-devel")
     else
-      run("yum -y install gcc make git zlib-devel lzma-devel")
+      run("yum -y install gcc gcc-c++ make git zlib-devel lzma-devel")
     end
   when /suse/
-    run("zypper --non-interactive install gcc make git")
+    run("zypper --non-interactive install gcc gcc-c++ make git")
   else
     puts "i do not know how to install compilers and git on this platform..."
   end
