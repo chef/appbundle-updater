@@ -43,24 +43,24 @@ def bin_dir
   chefdk.join("embedded/bin")
 end
 
-ENV['PATH'] = ( [ bin_dir ] + ENV['PATH'].split(File::PATH_SEPARATOR) ).join(File::PATH_SEPARATOR)
+ENV["PATH"] = ( [ bin_dir ] + ENV["PATH"].split(File::PATH_SEPARATOR) ).join(File::PATH_SEPARATOR)
 
-ENV_KEYS = %w[
+ENV_KEYS = %w{
     BUNDLE_BIN_PATH BUNDLE_GEMFILE GEM_HOME GEM_PATH GEM_ROOT IRBRC MY_RUBY_HOME RUBYLIB RUBYOPT RUBY_ENGINE RUBY_ROOT RUBY_VERSION _ORIGINAL_GEM_PATH PATH
-].freeze
+}.freeze
 
 def run(cmd)
   ENV_KEYS.each { |key| ENV["_YOLO_#{key}"] = ENV[key]; ENV.delete(key) }
-  ENV['PATH'] = bin_dir.to_s + File::PATH_SEPARATOR + ENV['_YOLO_PATH']
+  ENV["PATH"] = bin_dir.to_s + File::PATH_SEPARATOR + ENV["_YOLO_PATH"]
   puts "    running: #{cmd}"
-  output = `#{cmd} 2>&1`   #FIXME: bash/zsh-ism, will not work on csh
+  output = `#{cmd} 2>&1` #FIXME: bash/zsh-ism, will not work on csh
   unless $?.exited? && $?.exitstatus == 0
     raise("Command [#{cmd}] failed!\n\n---BEGIN OUTPUT--\n#{output}\n---END OUTPUT--\n")
   end
   ENV_KEYS.each { |key| ENV[key] = ENV.delete("_YOLO_#{key}") }
 end
 
-TAR_LONGLINK = '././@LongLink'
+TAR_LONGLINK = "././@LongLink"
 
 def install_package_dependencies
   banner("Installing Packages")
@@ -84,7 +84,7 @@ end
 
 # pure ruby `tar xzf`, handles longlinks and directories ending in '/'
 # (http://stackoverflow.com/a/31310593/506908)
-def extract_tgz(file, destination = '.')
+def extract_tgz(file, destination = ".")
   # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
   # THE RUBY STDLIB BY DESIGN
   Gem::Package::TarReader.new( Zlib::GzipReader.open file ) do |tar|
@@ -95,16 +95,16 @@ def extract_tgz(file, destination = '.')
         next
       end
       dest ||= File.join destination, entry.full_name
-      if entry.directory? || (entry.header.typeflag == '' && entry.full_name.end_with?('/'))
+      if entry.directory? || (entry.header.typeflag == "" && entry.full_name.end_with?("/"))
         File.delete dest if File.file? dest
         FileUtils.mkdir_p dest, :mode => entry.header.mode, :verbose => false
-      elsif entry.file? || (entry.header.typeflag == '' && !entry.full_name.end_with?('/'))
+      elsif entry.file? || (entry.header.typeflag == "" && !entry.full_name.end_with?("/"))
         FileUtils.rm_rf dest if File.directory? dest
         File.open dest, "wb" do |f|
           f.print entry.read
         end
         FileUtils.chmod entry.header.mode, dest, :verbose => false
-      elsif entry.header.typeflag == '2' #Symlink!
+      elsif entry.header.typeflag == "2" #Symlink!
         File.symlink entry.header.linkname, dest
       else
         puts "Unkown tar entry: #{entry.full_name} type: #{entry.header.typeflag}."
@@ -132,39 +132,39 @@ CHEFDK_APPS = [
     "berkshelf",
     "berkshelf/berkshelf",
     "guard test",
-    "#{bin_dir.join("rake")} install",
+    "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "chef",
     "chef/chef",
     # from chef/version_policy.rb INSTALL_WITHOUT_GROUPS
     "changelog development docgen guard integration maintenance tools travis style",
-    chef_install_command,
+    chef_install_command
   ),
   App.new(
     "chef-dk",
     "chef/chef-dk",
     # from chef-dk/version_policy.rb INSTALL_WITHOUT_GROUPS
     "changelog compat_testing development docgen guard integration maintenance test tools travis style",
-    "#{bin_dir.join("rake")} install",
+    "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "chef-vault",
     "Nordstrom/chef-vault",
     "test",
-    "#{bin_dir.join("rake")} install",
+    "#{bin_dir.join("rake")} install"
   ),
   App.new(
-     'cookstyle',
-     'chef/cookstyle',
+     "cookstyle",
+     "chef/cookstyle",
      nil,
-    "#{bin_dir.join("rake")} install",
+    "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "foodcritic",
     "foodcritic/foodcritic",
     nil,
-    "#{bin_dir.join("rake")} install",
+    "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "inspec",
@@ -175,13 +175,13 @@ CHEFDK_APPS = [
     "ohai",
     "chef/ohai",
     "test",
-    "#{bin_dir.join("rake")} install",
+    "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "test-kitchen",
     "test-kitchen/test-kitchen",
     "guard test",
-    "#{bin_dir.join("rake")} install",
+    "#{bin_dir.join("rake")} install"
   )
 ].freeze
 
@@ -211,13 +211,13 @@ class Updater
 
     install_package_dependencies
 
-    if ( tarball )
+    if  tarball
       # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
       # THE RUBY STDLIB BY DESIGN
       git_url = "https://github.com/#{repo}/archive/#{ref}.tar.gz"
       banner("Extracting #{app} from #{git_url}")
       Dir.chdir(chefdk.join("embedded/apps")) do
-        Tempfile.open('appbundle-updater') do |tempfile|
+        Tempfile.open("appbundle-updater") do |tempfile|
           tempfile.binmode
           open(git_url) do |uri|
             tempfile.write(uri.read)
@@ -286,7 +286,7 @@ class CLI
 
   def initialize
     @options = Hash.new
-    @parser = OptionParser.new { |opts|
+    @parser = OptionParser.new do |opts|
       opts.banner = "Usage: #{$0} PROJECT APP_NAME GIT_REF"
       opts.on("-t", "--[no-]tarball", "Do a tarball download instead of git clone") do |t|
         options[:tarball] = t
@@ -301,7 +301,7 @@ class CLI
       opts.separator("")
       opts.separator("App names:")
       CHEFDK_APPS.each { |a| opts.separator("    * #{a.name}") }
-    }
+    end
     @parser.parse!
     validate!
   end
