@@ -1,4 +1,13 @@
-# Change Log
+# appbundle-updaterChange Log
+
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
+<!-- latest_stable_release -->
 
 ## [0.6.0](https://github.com/chef/appbundle-updater/tree/HEAD)
 
