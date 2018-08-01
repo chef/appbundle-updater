@@ -1,4 +1,4 @@
-# appbundle-updaterChange Log
+# appbundle-updater Change Log
 
 <!-- latest_release -->
 <!-- latest_release -->
