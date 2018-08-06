@@ -150,7 +150,7 @@ CHEFDK_APPS = [
   ),
   App.new(
     "chef-vault",
-    "Nordstrom/chef-vault",
+    "chef/chef-vault",
     "test",
     "#{bin_dir.join("rake")} install",
   ),
