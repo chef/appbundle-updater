@@ -4,6 +4,7 @@ gemspec
 
 group :test do
   gem "rake"
+  gem "chefstyle"
 end
 
 group :debug do
