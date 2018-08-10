@@ -7,7 +7,7 @@ provisioner:
   data_path: bin
 
 platforms:
-  - name: ubuntu-14.04
+  - name: ubuntu-18.04
   - name: windows-2012r2-core
 
 suites:
