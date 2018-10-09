@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Updates appbundled apps in Chef's omnibus packages}
   spec.summary       = spec.description
   spec.homepage      = ""
-  spec.license       = "Apache2"
+  spec.license       = "Apache-2.0"
   spec.homepage      = "https://github.com/chef/appbundle-updater"
 
   spec.files         = `git ls-files`.split($/)
