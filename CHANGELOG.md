@@ -1,21 +1,19 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 0.6.1 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v0.6.1](https://github.com/chef/appbundle-updater/tree/v0.6.1) (2018-10-09)
 
 #### Merged Pull Requests
 - Fix the license string and limit the files we ship in the gem [#30](https://github.com/chef/appbundle-updater/pull/30) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=0.6.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix the license string and limit the files we ship in the gem [#30](https://github.com/chef/appbundle-updater/pull/30) ([tas50](https://github.com/tas50)) <!-- 0.6.1 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
-<!-- latest_stable_release -->
+
+
 
 ## [0.6.0](https://github.com/chef/appbundle-updater/tree/HEAD)
 
