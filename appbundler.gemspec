@@ -10,11 +10,10 @@ Gem::Specification.new do |spec|
   spec.email         = ["lamont@chef.io"]
   spec.description   = %q{Updates appbundled apps in Chef's omnibus packages}
   spec.summary       = spec.description
-  spec.homepage      = ""
-  spec.license       = "Apache2"
+  spec.license       = "Apache-2.0"
   spec.homepage      = "https://github.com/chef/appbundle-updater"
 
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = `git ls-files`.split($/).select { |x| !/^\./.match(x) }
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
