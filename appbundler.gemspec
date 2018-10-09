@@ -10,7 +10,6 @@ Gem::Specification.new do |spec|
   spec.email         = ["lamont@chef.io"]
   spec.description   = %q{Updates appbundled apps in Chef's omnibus packages}
   spec.summary       = spec.description
-  spec.homepage      = ""
   spec.license       = "Apache-2.0"
   spec.homepage      = "https://github.com/chef/appbundle-updater"
 
