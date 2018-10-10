@@ -113,9 +113,9 @@ Created and maintained by [Fletcher Nichol][fnichol] (<fnichol@nichol.ca>)
 
 ## <a name="license"></a> License
 
-Apache 2.0 (see [LICENSE.txt][license])
+Apache 2.0 (see [LICENSE][license])
 
-[license]:      https://github.com/fnichol/chefdk-update-app/blob/master/LICENSE.txt
+[license]:      https://github.com/chef/appbundle-updater/blob/master/LICENSE
 [fnichol]:      https://github.com/fnichol
-[repo]:         https://github.com/fnichol/chefdk-update-app
-[issues]:       https://github.com/fnichol/chefdk-update-app/issues
+[repo]:         https://github.com/chef/appbundle-updater
+[issues]:       https://github.com/chef/appbundle-updater/issues
