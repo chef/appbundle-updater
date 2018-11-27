@@ -1,16 +1,17 @@
 # appbundle-updater Change Log
 
 <!-- latest_release 0.6.3 -->
-## [v0.6.3](https://github.com/chef/appbundle-updater/tree/v0.6.3) (2018-11-27)
+## [v0.6.4](https://github.com/chef/appbundle-updater/tree/v0.6.4) (2018-11-27)
 
 #### Merged Pull Requests
-- fix pulling tags [#32](https://github.com/chef/appbundle-updater/pull/32) ([lamont-granquist](https://github.com/lamont-granquist))
+- i don&#39;t believe this gsub is useful [#33](https://github.com/chef/appbundle-updater/pull/33) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.6.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- i don&#39;t believe this gsub is useful [#33](https://github.com/chef/appbundle-updater/pull/33) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 0.6.3 -->
 - fix pulling tags [#32](https://github.com/chef/appbundle-updater/pull/32) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 0.6.3 -->
 <!-- release_rollup -->
 
