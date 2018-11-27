@@ -226,7 +226,7 @@ class Updater
           extract_tgz(tempfile.path)
         end
         base = File.basename repo
-        FileUtils.mv Dir.glob("#{base}-*").gsub(/\//, "-"), "#{app.name}"
+        FileUtils.mv Dir.glob("#{base}-*")[0], "#{app.name}"
       end
     else
       git_url = "https://github.com/#{repo}.git"
