@@ -1,6 +1,6 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 0.6.3 -->
+<!-- latest_release 0.6.4 -->
 ## [v0.6.4](https://github.com/chef/appbundle-updater/tree/v0.6.4) (2018-11-27)
 
 #### Merged Pull Requests
