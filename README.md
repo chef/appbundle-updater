@@ -57,7 +57,7 @@ If you don't want "master" you can use any other git tag/branch/sha/etc that git
 
 ## Using a GitHub Fork
 
-By default this gem clones from the official repos from the software. To override and point
+By default this gem clones from the official repos from the software.  To override and point
 at at fork use the `--github`` option on the command-line:
 
 ```ruby
