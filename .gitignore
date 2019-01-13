@@ -3,7 +3,16 @@
 .bundle
 Gemfile.lock
 tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+.swp
+.swo
+Gemfile.lock
 .rvmrc
+
 .rbenv-version
 .ruby-version
 .DS_Store
