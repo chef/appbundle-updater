@@ -78,7 +78,7 @@ def install_package_dependencies
   when /suse/
     run("zypper --non-interactive install gcc gcc-c++ make git")
   else
-    puts "i do not know how to install compilers and git on this platform..."
+    puts "I do not know how to install compilers and git on this platform..."
   end
 end
 
@@ -107,7 +107,7 @@ def extract_tgz(file, destination = ".")
       elsif entry.header.typeflag == "2" #Symlink!
         File.symlink entry.header.linkname, dest
       else
-        puts "Unkown tar entry: #{entry.full_name} type: #{entry.header.typeflag}."
+        puts "Unknown tar entry: #{entry.full_name} type: #{entry.header.typeflag}."
       end
       dest = nil
     end
@@ -122,7 +122,7 @@ end
 
 chef_install_command =
   if windows?
-    "#{bin_dir.join("gem")} build chef-windows.gemspec & #{bin_dir.join("gem")} install chef*.gem --no-ri --no-rdoc"
+    "#{bin_dir.join("gem")} build chef-windows.gemspec & #{bin_dir.join("gem")} install chef*.gem --no-document"
   else
     "#{bin_dir.join("rake")} install"
   end
