@@ -1,7 +1,7 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 0.6.6 -->
-## [v0.6.6](https://github.com/chef/appbundle-updater/tree/v0.6.6) (2019-04-23)
+<!-- latest_release 0.6.8 -->
+## [v0.6.8](https://github.com/chef/appbundle-updater/tree/v0.6.8) (2019-04-23)
 
 #### Merged Pull Requests
 - Update travis ruby versions + minor github tweaks [#36](https://github.com/chef/appbundle-updater/pull/36) ([tas50](https://github.com/tas50))
