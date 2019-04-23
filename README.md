@@ -1,10 +1,16 @@
 # appbundle-updater
+[![Gem Version](https://badge.fury.io/rb/appbundle-updater.svg)](https://badge.fury.io/rb/appbundle-updater)
+
+* **Umbrella Project**: [Chef Infra](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-foundation.md)
+* **[Project State](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: Active
+* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 7 days
+* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 7 days
 
 Helper to update Chef and Chef-DK appbundle'd apps inside of an omnibus bundle.
 
 ## Requirements
 
-* A ChefDK or Chef Client installation in the standard location.
+* A Chef Workstation, ChefDK, or Chef Client installation in the standard location.
 * You need to have the `git` command in your PATH.
 
 ## Usage Examples
