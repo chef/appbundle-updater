@@ -1,16 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 0.6.5 -->
-## [v0.6.5](https://github.com/chef/appbundle-updater/tree/v0.6.5) (2019-01-28)
+<!-- latest_release 0.6.6 -->
+## [v0.6.6](https://github.com/chef/appbundle-updater/tree/v0.6.6) (2019-04-23)
 
 #### Merged Pull Requests
-- Add yard deps that rake task uses [#34](https://github.com/chef/appbundle-updater/pull/34) ([tas50](https://github.com/tas50))
+- Update travis ruby versions + minor github tweaks [#36](https://github.com/chef/appbundle-updater/pull/36) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=0.6.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update travis ruby versions + minor github tweaks [#36](https://github.com/chef/appbundle-updater/pull/36) ([tas50](https://github.com/tas50)) <!-- 0.6.6 -->
 - Add yard deps that rake task uses [#34](https://github.com/chef/appbundle-updater/pull/34) ([tas50](https://github.com/tas50)) <!-- 0.6.5 -->
 - i don&#39;t believe this gsub is useful [#33](https://github.com/chef/appbundle-updater/pull/33) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 0.6.3 -->
 - fix pulling tags [#32](https://github.com/chef/appbundle-updater/pull/32) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 0.6.3 -->
