@@ -253,7 +253,9 @@ class Updater
 
     banner("Updating appbundler binstubs for #{app}")
     Dir.chdir(app_dir) do
-      ruby("#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")}")
+      cmd = "#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")}"
+      cmd += " --extra-bin-files #{options[:extra_bin_files]}" if options[:extra_bin_files]
+      ruby(cmd)
     end
 
     banner("Finished!")
@@ -297,6 +299,9 @@ class CLI
       opts.on("-h", "--help", "Prints this help") do
         puts opts
         exit
+      end
+      opts.on("-E", "--extra-bin-files BIN1,BIN2") do |e|
+        options[:extra_bin_files] = e
       end
       opts.separator("")
       opts.separator("App names:")
