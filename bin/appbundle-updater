@@ -53,14 +53,14 @@ def run(cmd)
   ENV_KEYS.each { |key| ENV["_YOLO_#{key}"] = ENV[key]; ENV.delete(key) }
   ENV["PATH"] = bin_dir.to_s + File::PATH_SEPARATOR + ENV["_YOLO_PATH"]
   puts "    running: #{cmd}"
-  output = `#{cmd} 2>&1` #FIXME: bash/zsh-ism, will not work on csh
+  output = `#{cmd} 2>&1` # FIXME: bash/zsh-ism, will not work on csh
   unless $?.exited? && $?.exitstatus == 0
     raise("Command [#{cmd}] failed!\n\n---BEGIN OUTPUT--\n#{output}\n---END OUTPUT--\n")
   end
   ENV_KEYS.each { |key| ENV[key] = ENV.delete("_YOLO_#{key}") }
 end
 
-TAR_LONGLINK = "././@LongLink"
+TAR_LONGLINK = "././@LongLink".freeze
 
 def install_package_dependencies
   banner("Installing Packages")
@@ -97,14 +97,14 @@ def extract_tgz(file, destination = ".")
       dest ||= File.join destination, entry.full_name
       if entry.directory? || (entry.header.typeflag == "" && entry.full_name.end_with?("/"))
         File.delete dest if File.file? dest
-        FileUtils.mkdir_p dest, :mode => entry.header.mode, :verbose => false
+        FileUtils.mkdir_p dest, mode: entry.header.mode, verbose: false
       elsif entry.file? || (entry.header.typeflag == "" && !entry.full_name.end_with?("/"))
         FileUtils.rm_rf dest if File.directory? dest
         File.open dest, "wb" do |f|
           f.print entry.read
         end
-        FileUtils.chmod entry.header.mode, dest, :verbose => false
-      elsif entry.header.typeflag == "2" #Symlink!
+        FileUtils.chmod entry.header.mode, dest, verbose: false
+      elsif entry.header.typeflag == "2" # Symlink!
         File.symlink entry.header.linkname, dest
       else
         puts "Unknown tar entry: #{entry.full_name} type: #{entry.header.typeflag}."
@@ -253,7 +253,9 @@ class Updater
 
     banner("Updating appbundler binstubs for #{app}")
     Dir.chdir(app_dir) do
-      ruby("#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")}")
+      cmd = "#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")}"
+      cmd += " --extra-bin-files #{options[:extra_bin_files]}" if options[:extra_bin_files]
+      ruby(cmd)
     end
 
     banner("Finished!")
@@ -297,6 +299,9 @@ class CLI
       opts.on("-h", "--help", "Prints this help") do
         puts opts
         exit
+      end
+      opts.on("-E", "--extra-bin-files BIN1,BIN2") do |e|
+        options[:extra_bin_files] = e
       end
       opts.separator("")
       opts.separator("App names:")
