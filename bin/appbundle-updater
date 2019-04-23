@@ -192,6 +192,7 @@ class Updater
     @app = options[:app]
     @ref = options[:ref]
     @tarball = options[:tarball]
+    @extra_bin_files = options[:extra_bin_files]
     @repo = options[:repo] || @app.repo
   end
 
@@ -254,7 +255,7 @@ class Updater
     banner("Updating appbundler binstubs for #{app}")
     Dir.chdir(app_dir) do
       cmd = "#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")}"
-      cmd += " --extra-bin-files #{options[:extra_bin_files]}" if options[:extra_bin_files]
+      cmd += " --extra-bin-files #{@extra_bin_files}" if @extra_bin_files
       ruby(cmd)
     end
 
