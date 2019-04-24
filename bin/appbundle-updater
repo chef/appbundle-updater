@@ -307,7 +307,7 @@ class CLI
         options[:extra_bin_files] = e
       end
       opts.on("-B", "--binstubs-source path/to/source") do |e|
-        options[:extra_bin_files] = e
+        options[:binstubs_source] = e
       end
       opts.separator("")
       opts.separator("App names:")
