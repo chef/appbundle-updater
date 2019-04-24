@@ -193,6 +193,7 @@ class Updater
     @ref = options[:ref]
     @tarball = options[:tarball]
     @extra_bin_files = options[:extra_bin_files]
+    @binstubs_source = options[:binstubs_source]
     @repo = options[:repo] || @app.repo
   end
 
@@ -256,6 +257,7 @@ class Updater
     Dir.chdir(app_dir) do
       cmd = "#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")}"
       cmd += " --extra-bin-files #{@extra_bin_files}" if @extra_bin_files
+      cmd += " --binstubs-source #{@binstubs_source}" if @binstubs_source
       ruby(cmd)
     end
 
@@ -302,6 +304,9 @@ class CLI
         exit
       end
       opts.on("-E", "--extra-bin-files BIN1,BIN2") do |e|
+        options[:extra_bin_files] = e
+      end
+      opts.on("-B", "--binstubs-source path/to/source") do |e|
         options[:extra_bin_files] = e
       end
       opts.separator("")
