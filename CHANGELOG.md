@@ -1,20 +1,18 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 0.6.11 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v0.6.11](https://github.com/chef/appbundle-updater/tree/v0.6.11) (2019-04-24)
 
 #### Merged Pull Requests
 - trivial fix [#39](https://github.com/chef/appbundle-updater/pull/39) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_release -->
-
-<!-- release_rollup since=0.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- trivial fix [#39](https://github.com/chef/appbundle-updater/pull/39) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 0.6.11 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v0.6.10](https://github.com/chef/appbundle-updater/tree/v0.6.10) (2019-04-24)
 
 #### Merged Pull Requests
@@ -24,7 +22,6 @@
 - Update travis ruby versions + minor github tweaks [#36](https://github.com/chef/appbundle-updater/pull/36) ([tas50](https://github.com/tas50))
 - Add project status info to the readme [#37](https://github.com/chef/appbundle-updater/pull/37) ([tas50](https://github.com/tas50))
 - support --binstubs-source option [#38](https://github.com/chef/appbundle-updater/pull/38) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_stable_release -->
 
 ## [v0.6.2](https://github.com/chef/appbundle-updater/tree/v0.6.2) (2018-10-10)
 
