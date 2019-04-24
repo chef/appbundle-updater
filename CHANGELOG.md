@@ -1,9 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release -->
+<!-- latest_release 0.6.11 -->
+## [v0.6.11](https://github.com/chef/appbundle-updater/tree/v0.6.11) (2019-04-24)
+
+#### Merged Pull Requests
+- trivial fix [#39](https://github.com/chef/appbundle-updater/pull/39) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.6.10 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- trivial fix [#39](https://github.com/chef/appbundle-updater/pull/39) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 0.6.11 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
