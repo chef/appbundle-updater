@@ -1,9 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release -->
+<!-- latest_release 0.6.12 -->
+## [v0.6.12](https://github.com/chef/appbundle-updater/tree/v0.6.12) (2019-06-24)
+
+#### Merged Pull Requests
+- Setup this repo for Buildkite testing [#40](https://github.com/chef/appbundle-updater/pull/40) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.6.11 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Setup this repo for Buildkite testing [#40](https://github.com/chef/appbundle-updater/pull/40) ([tas50](https://github.com/tas50)) <!-- 0.6.12 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
