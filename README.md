@@ -1,10 +1,13 @@
 # appbundle-updater
 [![Gem Version](https://badge.fury.io/rb/appbundle-updater.svg)](https://badge.fury.io/rb/appbundle-updater)
 
-* **Umbrella Project**: [Chef Infra](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-foundation.md)
-* **[Project State](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: Active
-* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 7 days
-* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 7 days
+**Umbrella Project**: [Chef Foundation](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-foundation.md)
+
+**Project State**: [Active](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md#active)
+
+**Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 14 days
+
+**Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 14 days
 
 Helper to update Chef and Chef-DK appbundle'd apps inside of an omnibus bundle.
 

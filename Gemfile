@@ -9,8 +9,8 @@ group :docs do
 end
 
 group :test do
-  gem "rake"
   gem "chefstyle"
+  gem "rake"
 end
 
 group :debug do
