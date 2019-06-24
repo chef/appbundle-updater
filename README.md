@@ -1,4 +1,5 @@
 # appbundle-updater
+[![Build status](https://badge.buildkite.com/0d8c5acd906f8477d39b49680f28aa818149dd255ffdabf86f.svg?branch=master)](https://buildkite.com/chef-oss/chef-appbundle-updater-master-verify)
 [![Gem Version](https://badge.fury.io/rb/appbundle-updater.svg)](https://badge.fury.io/rb/appbundle-updater)
 
 **Umbrella Project**: [Chef Foundation](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-foundation.md)
