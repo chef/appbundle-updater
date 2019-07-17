@@ -57,6 +57,7 @@ def run(cmd)
   unless $?.exited? && $?.exitstatus == 0
     raise("Command [#{cmd}] failed!\n\n---BEGIN OUTPUT--\n#{output}\n---END OUTPUT--\n")
   end
+
   ENV_KEYS.each { |key| ENV[key] = ENV.delete("_YOLO_#{key}") }
 end
 
@@ -64,7 +65,7 @@ TAR_LONGLINK = "././@LongLink".freeze
 
 def install_package_dependencies
   banner("Installing Packages")
-  case `#{bin_dir}/ohai platform_family`
+  case `#{bin_dir}/ohai platform_family` # rubocop: disable Lint/LiteralAsCondition
   when /debian/
     ENV["DEBIAN_FRONTEND"] = "noninteractive"
     run("apt-get -y update")
@@ -155,9 +156,9 @@ CHEFDK_APPS = [
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
-     "cookstyle",
-     "chef/cookstyle",
-     nil,
+    "cookstyle",
+    "chef/cookstyle",
+    nil,
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
@@ -170,7 +171,8 @@ CHEFDK_APPS = [
     "inspec",
     "chef/inspec",
     "test integration tools maintenance deploy",
-    "#{bin_dir.join("rake")} install"),
+    "#{bin_dir.join("rake")} install"
+  ),
   App.new(
     "ohai",
     "chef/ohai",
@@ -182,7 +184,7 @@ CHEFDK_APPS = [
     "test-kitchen/test-kitchen",
     "guard test",
     "#{bin_dir.join("rake")} install"
-  )
+  ),
 ].freeze
 
 class Updater
@@ -290,7 +292,7 @@ class CLI
   attr_reader :options, :parser
 
   def initialize
-    @options = Hash.new
+    @options = {}
     @parser = OptionParser.new do |opts|
       opts.banner = "Usage: #{$0} PROJECT APP_NAME GIT_REF"
       opts.on("-t", "--[no-]tarball", "Do a tarball download instead of git clone") do |t|
