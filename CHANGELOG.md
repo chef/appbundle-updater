@@ -1,28 +1,25 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 0.6.15 -->
-## [v0.6.15](https://github.com/chef/appbundle-updater/tree/v0.6.15) (2019-07-18)
-
-#### Merged Pull Requests
-- Support Fedora 30 by trying to install both lzma-devel and xz-devel [#43](https://github.com/chef/appbundle-updater/pull/43) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=0.6.11 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Support Fedora 30 by trying to install both lzma-devel and xz-devel [#43](https://github.com/chef/appbundle-updater/pull/43) ([tas50](https://github.com/tas50)) <!-- 0.6.15 -->
-- Add Windows testing in BuildKite [#42](https://github.com/chef/appbundle-updater/pull/42) ([tas50](https://github.com/tas50)) <!-- 0.6.14 -->
-- Remove Travis CI PR testing [#41](https://github.com/chef/appbundle-updater/pull/41) ([tas50](https://github.com/tas50)) <!-- 0.6.13 -->
-- Setup this repo for Buildkite testing [#40](https://github.com/chef/appbundle-updater/pull/40) ([tas50](https://github.com/tas50)) <!-- 0.6.12 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v0.6.15](https://github.com/chef/appbundle-updater/tree/v0.6.15) (2019-07-18)
+
+#### Merged Pull Requests
+- Setup this repo for Buildkite testing [#40](https://github.com/chef/appbundle-updater/pull/40) ([tas50](https://github.com/tas50))
+- Remove Travis CI PR testing [#41](https://github.com/chef/appbundle-updater/pull/41) ([tas50](https://github.com/tas50))
+- Add Windows testing in BuildKite [#42](https://github.com/chef/appbundle-updater/pull/42) ([tas50](https://github.com/tas50))
+- Support Fedora 30 by trying to install both lzma-devel and xz-devel [#43](https://github.com/chef/appbundle-updater/pull/43) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v0.6.11](https://github.com/chef/appbundle-updater/tree/v0.6.11) (2019-04-24)
 
 #### Merged Pull Requests
 - trivial fix [#39](https://github.com/chef/appbundle-updater/pull/39) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_stable_release -->
 
 ## [v0.6.10](https://github.com/chef/appbundle-updater/tree/v0.6.10) (2019-04-24)
 
