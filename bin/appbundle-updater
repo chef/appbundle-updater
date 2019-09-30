@@ -134,39 +134,37 @@ CHEFDK_APPS = [
   App.new(
     "berkshelf",
     "berkshelf/berkshelf",
-    "guard test",
+    "docs changelog",
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "chef",
     "chef/chef",
-    # from chef/version_policy.rb INSTALL_WITHOUT_GROUPS
-    "changelog development docgen guard integration maintenance tools travis style",
+    "development docgen chefstyle",
     chef_install_command
   ),
   App.new(
     "chef-dk",
     "chef/chef-dk",
-    # from chef-dk/version_policy.rb INSTALL_WITHOUT_GROUPS
-    "changelog compat_testing development docgen guard integration maintenance test tools travis style",
+    "development test",
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "chef-vault",
     "chef/chef-vault",
-    "test",
+    "development",
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "cookstyle",
     "chef/cookstyle",
-    nil,
+    "development debug docs",
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "foodcritic",
     "foodcritic/foodcritic",
-    nil,
+    "development",
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
@@ -178,13 +176,13 @@ CHEFDK_APPS = [
   App.new(
     "ohai",
     "chef/ohai",
-    "test",
+    "development ci docs debug",
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
     "test-kitchen",
     "test-kitchen/test-kitchen",
-    "guard test",
+    "changelog integration debug chefstyle docs",
     "#{bin_dir.join("rake")} install"
   ),
 ].freeze
