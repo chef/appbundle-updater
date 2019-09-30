@@ -1,20 +1,18 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 0.6.16 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v0.6.16](https://github.com/chef/appbundle-updater/tree/v0.6.16) (2019-09-30)
 
 #### Merged Pull Requests
 - Update the groups we ignore in the bundle installs [#44](https://github.com/chef/appbundle-updater/pull/44) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=0.6.15 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update the groups we ignore in the bundle installs [#44](https://github.com/chef/appbundle-updater/pull/44) ([tas50](https://github.com/tas50)) <!-- 0.6.16 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v0.6.15](https://github.com/chef/appbundle-updater/tree/v0.6.15) (2019-07-18)
 
 #### Merged Pull Requests
@@ -22,7 +20,6 @@
 - Remove Travis CI PR testing [#41](https://github.com/chef/appbundle-updater/pull/41) ([tas50](https://github.com/tas50))
 - Add Windows testing in BuildKite [#42](https://github.com/chef/appbundle-updater/pull/42) ([tas50](https://github.com/tas50))
 - Support Fedora 30 by trying to install both lzma-devel and xz-devel [#43](https://github.com/chef/appbundle-updater/pull/43) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v0.6.11](https://github.com/chef/appbundle-updater/tree/v0.6.11) (2019-04-24)
 
