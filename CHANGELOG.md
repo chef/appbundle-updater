@@ -1,25 +1,22 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 0.6.18 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v0.6.18](https://github.com/chef/appbundle-updater/tree/v0.6.18) (2020-03-11)
 
 #### Merged Pull Requests
 - need output logging so that we can debug [#47](https://github.com/chef/appbundle-updater/pull/47) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_release -->
-
-<!-- release_rollup since=0.6.17 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- need output logging so that we can debug [#47](https://github.com/chef/appbundle-updater/pull/47) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 0.6.18 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v0.6.17](https://github.com/chef/appbundle-updater/tree/v0.6.17) (2019-09-30)
 
 #### Merged Pull Requests
 - Don&#39;t exclude the development group for ohai [#45](https://github.com/chef/appbundle-updater/pull/45) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v0.6.16](https://github.com/chef/appbundle-updater/tree/v0.6.16) (2019-09-30)
 
