@@ -1,9 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release -->
+<!-- latest_release 1.0.0 -->
+## [v1.0.0](https://github.com/chef/appbundle-updater/tree/v1.0.0) (2020-03-11)
+
+#### Merged Pull Requests
+- Time to add chef-15 support [#48](https://github.com/chef/appbundle-updater/pull/48) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=0.6.18 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Time to add chef-15 support [#48](https://github.com/chef/appbundle-updater/pull/48) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
