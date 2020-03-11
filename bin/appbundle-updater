@@ -56,6 +56,8 @@ def run(cmd)
   output = `#{cmd} 2>&1` # FIXME: bash/zsh-ism, will not work on csh
   unless $?.exited? && $?.exitstatus == 0
     raise("Command [#{cmd}] failed!\n\n---BEGIN OUTPUT--\n#{output}\n---END OUTPUT--\n")
+  else
+    puts "---BEGIN OUTPUT--\n#{output}\n---END OUTPUT--\n"
   end
 
   ENV_KEYS.each { |key| ENV[key] = ENV.delete("_YOLO_#{key}") }
