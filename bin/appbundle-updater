@@ -119,7 +119,7 @@ def extract_tgz(file, destination = ".")
   end
 end
 
-App = Struct.new(:name, :repo, :bundle_without, :install_command, :gems) do
+App = Struct.new(:name, :repo, :bundle_without, :install_commands, :gems) do
   def initialize(*)
     super
     self.gems ||= {}
@@ -147,8 +147,8 @@ CHEFDK_APPS = [
   App.new(
     "chef",
     "chef/chef",
-    "development docgen chefstyle",
-    "#{bin_dir.join("bundle")} install --without server,docgen,maintenance,pry,travis,integration,ci,chefstyle",
+    "server docgen maintenance pry travis integration ci chefstyle",
+    chef_install_command,
     {
       "chef" => %w{server docgen maintenance pry travis integration ci chefstyle},
       "chef-bin" => %w{server docgen maintenance pry travis integration ci chefstyle},
@@ -216,7 +216,7 @@ CHEFDK_APPS = [
 ].freeze
 
 class Updater
-  attr_reader :app, :ref, :tarball, :repo, :gems
+  attr_reader :app, :ref, :tarball, :repo, :gems, :install_commands
 
   def initialize(options)
     @app = options[:app]
@@ -226,6 +226,7 @@ class Updater
     @binstubs_source = options[:binstubs_source]
     @repo = options[:repo] || @app.repo
     @gems = @app.gems
+    @install_commands = @app.install_commands
   end
 
   def start
@@ -281,7 +282,9 @@ class Updater
 
     banner("Installing gem")
     Dir.chdir(app_dir) do
-      ruby("#{bin_dir.join("bundle")} exec #{app.install_command}")
+      Array(install_commands).each do |command|
+        ruby("#{bin_dir.join("bundle")} exec #{command}")
+      end
     end
 
     banner("Updating appbundler binstubs for #{app}")
