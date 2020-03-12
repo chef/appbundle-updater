@@ -299,7 +299,7 @@ class Updater
       gems.each do |gem_name, without|
         Dir.chdir(app_dir) do
           cmd = "#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")} #{gem_name}"
-          cmd += " --without #{@without.join(",")}" if @without
+          cmd += " --without #{without.join(",")}" if without
           cmd += " --extra-bin-files #{@extra_bin_files}" if @extra_bin_files
           cmd += " --binstubs-source #{@binstubs_source}" if @binstubs_source
           ruby(cmd)
