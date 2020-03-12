@@ -152,7 +152,7 @@ CHEFDK_APPS = [
     {
       "chef" => %w{server docgen maintenance pry travis integration ci chefstyle},
       "chef-bin" => %w{server docgen maintenance pry travis integration ci chefstyle},
-      "ohai" =>  %w{server docgen maintenance pry travis integration ci chefstyle},
+      "ohai" =>  %w{development docs ci debug},
       "inspec-core-bin" =>  %w{server docgen maintenance pry travis integration ci chefstyle},
     },
   ),
