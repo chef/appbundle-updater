@@ -1,25 +1,22 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 1.0.2 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.2](https://github.com/chef/appbundle-updater/tree/v1.0.2) (2020-03-12)
 
 #### Merged Pull Requests
 - omit the right groups for ohai [#50](https://github.com/chef/appbundle-updater/pull/50) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_release -->
-
-<!-- release_rollup since=1.0.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- omit the right groups for ohai [#50](https://github.com/chef/appbundle-updater/pull/50) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.2 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.1](https://github.com/chef/appbundle-updater/tree/v1.0.1) (2020-03-12)
 
 #### Merged Pull Requests
 - more chef-15 updates [#49](https://github.com/chef/appbundle-updater/pull/49) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_stable_release -->
 
 ## [v1.0.0](https://github.com/chef/appbundle-updater/tree/v1.0.0) (2020-03-11)
 
