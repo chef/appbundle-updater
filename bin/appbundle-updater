@@ -78,7 +78,7 @@ def install_package_dependencies
       # lzma-devel has been replaced in fedora 30+ with xz-devel
       run("dnf -y install lzma-devel || dnf -y install xz-devel")
     else
-      run("yum -y install gcc gcc-c++ make git zlib-devel lzma-devel")
+      run("yum -y install gcc gcc-c++ make git zlib-devel lzma-devel libffi-devel")
     end
   when /suse/
     run("zypper --non-interactive install gcc gcc-c++ make git")
