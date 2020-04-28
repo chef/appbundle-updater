@@ -134,7 +134,7 @@ chef_install_command =
   if windows?
     "#{bin_dir.join("gem")} build chef-windows.gemspec & #{bin_dir.join("gem")} install chef*.gem --no-document"
   else
-    "#{bin_dir.join("rake")} install"
+    "#{bin_dir.join("bundle")} exec #{bin_dir.join("rake")} install"
   end
 
 CHEFDK_APPS = [
@@ -150,10 +150,10 @@ CHEFDK_APPS = [
     "server docgen maintenance pry travis integration ci chefstyle",
     chef_install_command,
     {
-      "chef" => %w{server docgen maintenance pry travis integration ci chefstyle},
-      "chef-bin" => %w{server docgen maintenance pry travis integration ci chefstyle},
-      "ohai" =>  %w{development docs ci debug},
-      "inspec-core-bin" =>  %w{server docgen maintenance pry travis integration ci chefstyle},
+      "chef" => %w{docgen chefstyle},
+      "chef-bin" => %w{development},
+      "ohai" =>  %w{development docs debug},
+      "inspec-core-bin" =>  %w{development},
     },
   ),
   App.new(
@@ -204,7 +204,7 @@ CHEFDK_APPS = [
   App.new(
     "ohai",
     "chef/ohai",
-    "ci docs debug",
+    "development docs debug",
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
@@ -283,7 +283,7 @@ class Updater
     banner("Installing gem")
     Dir.chdir(app_dir) do
       Array(install_commands).each do |command|
-        ruby("#{bin_dir.join("bundle")} exec #{command}")
+        ruby(command)
       end
     end
 
