@@ -1,9 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release -->
+<!-- latest_release 1.0.4 -->
+## [v1.0.4](https://github.com/chef/appbundle-updater/tree/v1.0.4) (2020-04-28)
+
+#### Merged Pull Requests
+- update gem groups in appbundler [#53](https://github.com/chef/appbundle-updater/pull/53) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=1.0.3 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- update gem groups in appbundler [#53](https://github.com/chef/appbundle-updater/pull/53) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
