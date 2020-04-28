@@ -134,7 +134,7 @@ chef_install_command =
   if windows?
     "#{bin_dir.join("gem")} build chef-windows.gemspec & #{bin_dir.join("gem")} install chef*.gem --no-document"
   else
-    "#{bin_dir.join("rake")} install"
+    "#{bin_dir.join("bundle")} exec #{bin_dir.join("rake")} install"
   end
 
 CHEFDK_APPS = [
@@ -283,7 +283,7 @@ class Updater
     banner("Installing gem")
     Dir.chdir(app_dir) do
       Array(install_commands).each do |command|
-        ruby("#{bin_dir.join("bundle")} exec #{command}")
+        ruby(command)
       end
     end
 
