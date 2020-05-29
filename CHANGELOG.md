@@ -1,25 +1,22 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 1.0.6 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.6](https://github.com/chef/appbundle-updater/tree/v1.0.6) (2020-05-29)
 
 #### Merged Pull Requests
 - Just use `rake install` on windows [#55](https://github.com/chef/appbundle-updater/pull/55) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_release -->
-
-<!-- release_rollup since=1.0.5 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Just use `rake install` on windows [#55](https://github.com/chef/appbundle-updater/pull/55) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.6 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.5](https://github.com/chef/appbundle-updater/tree/v1.0.5) (2020-05-29)
 
 #### Merged Pull Requests
 - switch from `open` to `URI.open` [#54](https://github.com/chef/appbundle-updater/pull/54) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_stable_release -->
 
 ## [v1.0.4](https://github.com/chef/appbundle-updater/tree/v1.0.4) (2020-04-28)
 
