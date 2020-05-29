@@ -253,7 +253,7 @@ class Updater
       Dir.chdir(chefdk.join("embedded/apps")) do
         Tempfile.open("appbundle-updater") do |tempfile|
           tempfile.binmode
-          open(git_url) do |uri|
+          URI.open(git_url) do |uri|
             tempfile.write(uri.read)
           end
           tempfile.close
