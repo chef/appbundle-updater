@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# -*- encoding: utf-8 -*-
 #
 # Author:: Fletcher Nichol (<fnichol@nichol.ca>)
 #
@@ -142,14 +141,14 @@ CHEFDK_APPS = [
   App.new(
     "chef",
     "chef/chef",
-    "server docgen maintenance pry travis integration ci chefstyle",
+    "server docgen maintenance pry integration ci chefstyle profile",
     chef_install_command,
     {
       "chef" => %w{docgen chefstyle},
       "chef-bin" => %w{development},
       "ohai" =>  %w{development docs debug},
       "inspec-core-bin" =>  %w{development},
-    },
+    }
   ),
   App.new(
     "chef-dk",
@@ -170,7 +169,7 @@ CHEFDK_APPS = [
       "ohai" => %w{changelog},
       "opscode-pushy-client" => %w{changelog},
       "cookstyle" => %w{changelog},
-    },
+    }
   ),
   App.new(
     "chef-vault",
