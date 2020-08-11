@@ -147,7 +147,7 @@ CHEFDK_APPS = [
   App.new(
     "chef",
     "chef/chef",
-    "server docgen maintenance pry travis integration ci chefstyle",
+    "server docgen maintenance pry integration ci chefstyle profile",
     chef_install_command,
     {
       "chef" => %w{docgen chefstyle},
