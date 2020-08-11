@@ -1,25 +1,22 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 1.0.7 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.7](https://github.com/chef/appbundle-updater/tree/v1.0.7) (2020-08-11)
 
 #### Merged Pull Requests
 - Make sure we don&#39;t even install profile gem groups [#56](https://github.com/chef/appbundle-updater/pull/56) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=1.0.6 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Make sure we don&#39;t even install profile gem groups [#56](https://github.com/chef/appbundle-updater/pull/56) ([tas50](https://github.com/tas50)) <!-- 1.0.7 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.6](https://github.com/chef/appbundle-updater/tree/v1.0.6) (2020-05-29)
 
 #### Merged Pull Requests
 - Just use `rake install` on windows [#55](https://github.com/chef/appbundle-updater/pull/55) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_stable_release -->
 
 ## [v1.0.5](https://github.com/chef/appbundle-updater/tree/v1.0.5) (2020-05-29)
 
