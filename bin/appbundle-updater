@@ -146,7 +146,7 @@ CHEFDK_APPS = [
     {
       "chef" => %w{docgen chefstyle},
       "chef-bin" => %w{development},
-      "ohai" =>  %w{development docs debug},
+      "ohai" =>  %w{development docs debug profile},
       "inspec-core-bin" =>  %w{development},
     }
   ),
