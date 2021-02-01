@@ -1,16 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 1.0.19 -->
-## [v1.0.19](https://github.com/chef/appbundle-updater/tree/v1.0.19) (2021-01-29)
+<!-- latest_release 1.0.20 -->
+## [v1.0.20](https://github.com/chef/appbundle-updater/tree/v1.0.20) (2021-02-01)
 
 #### Merged Pull Requests
-- Update chefstyle requirement from 1.5.9 to 1.6.1 [#72](https://github.com/chef/appbundle-updater/pull/72) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update chefstyle requirement from 1.6.1 to 1.6.2 [#73](https://github.com/chef/appbundle-updater/pull/73) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.0.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update chefstyle requirement from 1.6.1 to 1.6.2 [#73](https://github.com/chef/appbundle-updater/pull/73) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 1.0.20 -->
 - Update chefstyle requirement from 1.5.9 to 1.6.1 [#72](https://github.com/chef/appbundle-updater/pull/72) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 1.0.19 -->
 - Update chefstyle requirement from 1.5.8 to 1.5.9 [#71](https://github.com/chef/appbundle-updater/pull/71) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 1.0.18 -->
 - Update chefstyle requirement from 1.5.2 to 1.5.8 [#70](https://github.com/chef/appbundle-updater/pull/70) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 1.0.17 -->
