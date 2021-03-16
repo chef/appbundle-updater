@@ -274,6 +274,11 @@ class Updater
       ruby(cmd)
     end
 
+    banner("Re-installing git-installed gems")
+    Dir.chdir(app_dir) do
+      ruby("post-bundle-install.rb #{chefdk}") if File.exist?("#{app_dir}/post-bundle-install.rb")
+    end
+
     banner("Installing gem")
     Dir.chdir(app_dir) do
       Array(install_commands).each do |command|
