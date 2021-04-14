@@ -10,11 +10,11 @@
 
 **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 14 days
 
-Helper to update Chef and Chef-DK appbundle'd apps inside of an omnibus bundle.
+Helper to update Chef and Chef Workstation appbundle'd apps inside of an omnibus bundle.
 
 ## Requirements
 
-* A Chef Workstation, ChefDK, or Chef Client installation in the standard location.
+* A Chef Workstation or Chef Client installation in the standard location.
 * You need to have the `git` command in your PATH.
 
 ## Usage Examples

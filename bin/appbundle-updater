@@ -157,7 +157,6 @@ CHEFDK_APPS = [
     "#{bin_dir.join("bundle")} install",
     {
       "chef" => %w{docgen chefstyle omnibus_package},
-      "foodcritic" => %w{development test},
       "test-kitchen" => %w{changelog debug docs development},
       "inspec" =>  %w{deploy tools maintenance integration},
       "chef-run" => %w{changelog docs debug},
@@ -167,7 +166,6 @@ CHEFDK_APPS = [
       "chef-apply" => %w{changelog},
       "chef-vault" => %w{changelog},
       "ohai" => %w{changelog},
-      "opscode-pushy-client" => %w{changelog},
       "cookstyle" => %w{changelog},
     }
   ),
@@ -181,12 +179,6 @@ CHEFDK_APPS = [
     "cookstyle",
     "chef/cookstyle",
     "development debug docs",
-    "#{bin_dir.join("rake")} install"
-  ),
-  App.new(
-    "foodcritic",
-    "foodcritic/foodcritic",
-    "development",
     "#{bin_dir.join("rake")} install"
   ),
   App.new(
