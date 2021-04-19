@@ -1,9 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release -->
+<!-- latest_release 1.0.24 -->
+## [v1.0.24](https://github.com/chef/appbundle-updater/tree/v1.0.24) (2021-04-19)
+
+#### Merged Pull Requests
+- Update chefstyle requirement from 1.7.2 to 1.7.5 [#79](https://github.com/chef/appbundle-updater/pull/79) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=1.0.23 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Update chefstyle requirement from 1.7.2 to 1.7.5 [#79](https://github.com/chef/appbundle-updater/pull/79) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 1.0.24 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
