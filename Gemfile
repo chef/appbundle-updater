@@ -9,7 +9,7 @@ group :docs do
 end
 
 group :test do
-  gem "parallel", "< 1.20" # remove this pin/dep when we drop ruby < 2.4
+  gem "parallel", "< 1.21" # remove this pin/dep when we drop ruby < 2.4
   gem "chefstyle", "1.7.5"
   gem "rake"
 end
