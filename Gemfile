@@ -10,7 +10,7 @@ end
 
 group :test do
   gem "parallel", "< 1.21" # remove this pin/dep when we drop ruby < 2.4
-  gem "chefstyle", "1.7.5"
+  gem "chefstyle", "2.0.4"
   gem "rake"
 end
 
