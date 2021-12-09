@@ -1,16 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 1.0.33 -->
-## [v1.0.33](https://github.com/chef/appbundle-updater/tree/v1.0.33) (2021-12-09)
+<!-- latest_release 1.0.34 -->
+## [v1.0.34](https://github.com/chef/appbundle-updater/tree/v1.0.34) (2021-12-09)
 
 #### Merged Pull Requests
-- remove bundle exec from rake install [#96](https://github.com/chef/appbundle-updater/pull/96) ([lamont-granquist](https://github.com/lamont-granquist))
+- Need a version bump for release [#97](https://github.com/chef/appbundle-updater/pull/97) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.0.23 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Need a version bump for release [#97](https://github.com/chef/appbundle-updater/pull/97) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.34 -->
 - remove bundle exec from rake install [#96](https://github.com/chef/appbundle-updater/pull/96) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.33 -->
 - Update chefstyle requirement from 2.1.1 to 2.1.3 [#95](https://github.com/chef/appbundle-updater/pull/95) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.32 -->
 - Update chefstyle requirement from 2.1.0 to 2.1.1 [#93](https://github.com/chef/appbundle-updater/pull/93) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.31 -->
