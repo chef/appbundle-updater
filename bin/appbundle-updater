@@ -129,7 +129,7 @@ App = Struct.new(:name, :repo, :bundle_without, :install_commands, :gems) do
   end
 end
 
-chef_install_command = "#{bin_dir.join("bundle")} exec #{bin_dir.join("rake")} install"
+chef_install_command = "#{bin_dir.join("rake")} install"
 
 CHEFDK_APPS = [
   App.new(
