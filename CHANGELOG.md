@@ -1,32 +1,30 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 1.0.36 -->
-## [v1.0.36](https://github.com/chef/appbundle-updater/tree/v1.0.36) (2022-02-09)
-
-#### Merged Pull Requests
-- Use rake install:local [#100](https://github.com/chef/appbundle-updater/pull/100) ([lamont-granquist](https://github.com/lamont-granquist))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=1.0.23 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Use rake install:local [#100](https://github.com/chef/appbundle-updater/pull/100) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.36 -->
-- Update chefstyle requirement from 2.1.3 to 2.2.0 [#98](https://github.com/chef/appbundle-updater/pull/98) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.35 -->
-- Need a version bump for release [#97](https://github.com/chef/appbundle-updater/pull/97) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.34 -->
-- remove bundle exec from rake install [#96](https://github.com/chef/appbundle-updater/pull/96) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 1.0.33 -->
-- Update chefstyle requirement from 2.1.1 to 2.1.3 [#95](https://github.com/chef/appbundle-updater/pull/95) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.32 -->
-- Update chefstyle requirement from 2.1.0 to 2.1.1 [#93](https://github.com/chef/appbundle-updater/pull/93) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.31 -->
-- Update chefstyle requirement from 2.0.9 to 2.1.0 [#92](https://github.com/chef/appbundle-updater/pull/92) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.30 -->
-- Update chefstyle requirement from 2.0.7 to 2.0.9 [#90](https://github.com/chef/appbundle-updater/pull/90) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.29 -->
-- Update chefstyle requirement from 2.0.5 to 2.0.7 [#87](https://github.com/chef/appbundle-updater/pull/87) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.28 -->
-- Update chefstyle requirement from 1.7.5 to 2.0.5 [#85](https://github.com/chef/appbundle-updater/pull/85) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.27 -->
-- Update parallel requirement from &lt; 1.20 to &lt; 1.21 [#81](https://github.com/chef/appbundle-updater/pull/81) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 1.0.26 -->
-- Upgrade to GitHub-native Dependabot [#80](https://github.com/chef/appbundle-updater/pull/80) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 1.0.25 -->
-- Update chefstyle requirement from 1.7.2 to 1.7.5 [#79](https://github.com/chef/appbundle-updater/pull/79) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 1.0.24 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.0.36](https://github.com/chef/appbundle-updater/tree/v1.0.36) (2022-02-09)
+
+#### Merged Pull Requests
+- Update chefstyle requirement from 1.7.2 to 1.7.5 [#79](https://github.com/chef/appbundle-updater/pull/79) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Upgrade to GitHub-native Dependabot [#80](https://github.com/chef/appbundle-updater/pull/80) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
+- Update parallel requirement from &lt; 1.20 to &lt; 1.21 [#81](https://github.com/chef/appbundle-updater/pull/81) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update chefstyle requirement from 1.7.5 to 2.0.5 [#85](https://github.com/chef/appbundle-updater/pull/85) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update chefstyle requirement from 2.0.5 to 2.0.7 [#87](https://github.com/chef/appbundle-updater/pull/87) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update chefstyle requirement from 2.0.7 to 2.0.9 [#90](https://github.com/chef/appbundle-updater/pull/90) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update chefstyle requirement from 2.0.9 to 2.1.0 [#92](https://github.com/chef/appbundle-updater/pull/92) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update chefstyle requirement from 2.1.0 to 2.1.1 [#93](https://github.com/chef/appbundle-updater/pull/93) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update chefstyle requirement from 2.1.1 to 2.1.3 [#95](https://github.com/chef/appbundle-updater/pull/95) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- remove bundle exec from rake install [#96](https://github.com/chef/appbundle-updater/pull/96) ([lamont-granquist](https://github.com/lamont-granquist))
+- Need a version bump for release [#97](https://github.com/chef/appbundle-updater/pull/97) ([lamont-granquist](https://github.com/lamont-granquist))
+- Update chefstyle requirement from 2.1.3 to 2.2.0 [#98](https://github.com/chef/appbundle-updater/pull/98) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Use rake install:local [#100](https://github.com/chef/appbundle-updater/pull/100) ([lamont-granquist](https://github.com/lamont-granquist))
+<!-- latest_stable_release -->
+
 ## [v1.0.23](https://github.com/chef/appbundle-updater/tree/v1.0.23) (2021-03-16)
 
 #### Merged Pull Requests
@@ -45,7 +43,6 @@
 - Update chefstyle requirement from 1.6.2 to 1.7.1 [#74](https://github.com/chef/appbundle-updater/pull/74) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 - Update chefstyle requirement from 1.7.1 to 1.7.2 [#75](https://github.com/chef/appbundle-updater/pull/75) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 - Add support for post bundle install hook [#76](https://github.com/chef/appbundle-updater/pull/76) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_stable_release -->
 
 ## [v1.0.8](https://github.com/chef/appbundle-updater/tree/v1.0.8) (2020-08-12)
 
