@@ -1,9 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release -->
+<!-- latest_release 1.0.37 -->
+## [v1.0.37](https://github.com/chef/appbundle-updater/tree/v1.0.37) (2022-08-29)
+
+#### Merged Pull Requests
+- update codeowners to include omnibus team &amp; some cleanup [#103](https://github.com/chef/appbundle-updater/pull/103) ([vkarve-chef](https://github.com/vkarve-chef))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=1.0.36 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- update codeowners to include omnibus team &amp; some cleanup [#103](https://github.com/chef/appbundle-updater/pull/103) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 1.0.37 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
