@@ -45,7 +45,7 @@ def pkg_path
 
   pkg_path = pkg_path.join(version)
   build_no = Dir.glob("#{pkg_path}/*").sort.last
-  raise "No existing installation found for #{ARGV[0]}/#{ARGV[1]}/#{version} in #{pkg_path}" if version.nil?
+  raise "No existing installation found for #{ARGV[0]}/#{ARGV[1]}/#{version} in #{pkg_path}" if build_no.nil?
 
   pkg_path.join(build_no)
 end
@@ -58,6 +58,12 @@ def bin_dir
   pkg_path.join('bin')
 end
 
+def ruby_bin_path
+  # NOTE: this is sort of a 'hacky' way maybe to find which ruby binary to use?
+  ruby_path = File.read("#{pkg_path}/DEPS").split("\n").find { |l| l.start_with?("core/ruby") }
+  habitat.join(ruby_path, "bin")
+end
+
 ENV["PATH"] = ( [ bin_dir ] + ENV["PATH"].split(File::PATH_SEPARATOR) ).join(File::PATH_SEPARATOR)
 
 ENV_KEYS = %w{
@@ -66,7 +72,7 @@ ENV_KEYS = %w{
 
 def run(cmd)
   ENV_KEYS.each { |key| ENV["_YOLO_#{key}"] = ENV[key]; ENV.delete(key) }
-  ENV["PATH"] = bin_dir.to_s + File::PATH_SEPARATOR + ENV["_YOLO_PATH"]
+  ENV["PATH"] = ruby_bin_path.to_s + File::PATH_SEPARATOR + ENV["_YOLO_PATH"]
   puts "    running: #{cmd}"
   output = `#{cmd} 2>&1` # FIXME: bash/zsh-ism, will not work on csh
   unless $?.exited? && $?.exitstatus == 0
@@ -145,7 +151,7 @@ App = Struct.new(:name, :origin, :bundle_without, :install_commands, :gems) do
   end
 end
 
-chef_install_command = "#{vendor_bin_dir.join("rake")} install:local"
+chef_install_command = "#{vendor_bin_dir.join("rake")} install:local --trace"
 
 HABITAT_PACKAGES = [
   App.new(
@@ -279,7 +285,7 @@ class Updater
           run("git checkout #{ref}")
         end
       end
-  
+
       banner("Installing dependencies")
       Dir.chdir(app_dir) do
         cmd = "#{vendor_bin_dir.join("bundle")} install"
@@ -336,11 +342,9 @@ class Updater
   end
 
   def ruby(script)
-    # NOTE: this is sort of a 'hacky' way maybe to find which ruby binary to use?
-    ruby_path = File.read("#{pkg_path}/DEPS").split("\n").find { |l| l.start_with?("core/ruby") }
-    ruby_bin_path = habitat.join(ruby_path, "bin", "ruby").to_s.tap { |p| p.concat(".exe") if windows? }
+    ruby_bin = ruby_bin_path.join("ruby").to_s.tap { |p| p.concat(".exe") if windows? }
 
-    run([ruby_bin_path, script].join(" "))
+    run([ruby_bin, script].join(" "))
   end
 
 end
@@ -381,7 +385,6 @@ class CLI
   end
 
   def validate!
-    # args: chef chef-infra-client main --tarball --github chef/chef
     die("PROJECT APP_NAME GIT_REF options are all required") if ARGV.length < 3
     options[:app] = HABITAT_PACKAGES.find { |a| a.name == ARGV[1] }
     die("Invalid APP_NAME: #{ARGV[1]}") if options[:app].nil?
