@@ -24,22 +24,38 @@ require "rubygems/package"
 require "zlib"
 require "tempfile"
 
-# FIXME: move to helpers mixin
-
 def windows?
   @windows ||= RUBY_PLATFORM =~ /mswin|mingw|windows/
 end
 
-def chefdk
+def habitat
   if windows?
-    Pathname.new(File.join(ENV["SYSTEMDRIVE"], "opscode", ARGV[0]))
+    Pathname.new(File.join(ENV['SYSTEMDRIVE'], 'hab', 'pkgs'))
   else
-    Pathname.new(File.join("/opt", ARGV[0]))
+    Pathname.new(File.join('/hab', 'pkgs'))
   end
 end
 
+# find the path to installed package in habitat package directory
+# example, /hab/pkgs/{ARGV[0]}/{ARGV[1]}/x.x.x/xxxxxxxxxxxxxx
+def pkg_path
+  pkg_path = habitat.join(ARGV[0], ARGV[1])
+  version = Dir.glob("#{pkg_path}/*").sort.last
+  raise "No existing installation found for #{ARGV[0]}/#{ARGV[1]} in #{pkg_path}" if version.nil?
+
+  pkg_path = pkg_path.join(version)
+  build_no = Dir.glob("#{pkg_path}/*").sort.last
+  raise "No existing installation found for #{ARGV[0]}/#{ARGV[1]}/#{version} in #{pkg_path}" if version.nil?
+
+  pkg_path.join(build_no)
+end
+
+def vendor_bin_dir
+  pkg_path.join('vendor', 'bin')
+end
+
 def bin_dir
-  chefdk.join("embedded/bin")
+  pkg_path.join('bin')
 end
 
 ENV["PATH"] = ( [ bin_dir ] + ENV["PATH"].split(File::PATH_SEPARATOR) ).join(File::PATH_SEPARATOR)
@@ -118,7 +134,7 @@ def extract_tgz(file, destination = ".")
   end
 end
 
-App = Struct.new(:name, :repo, :bundle_without, :install_commands, :gems) do
+App = Struct.new(:name, :origin, :bundle_without, :install_commands, :gems) do
   def initialize(*)
     super
     self.gems ||= {}
@@ -129,18 +145,18 @@ App = Struct.new(:name, :repo, :bundle_without, :install_commands, :gems) do
   end
 end
 
-chef_install_command = "#{bin_dir.join("rake")} install:local"
+chef_install_command = "#{vendor_bin_dir.join("rake")} install:local"
 
-CHEFDK_APPS = [
+HABITAT_PACKAGES = [
   App.new(
     "berkshelf",
     "berkshelf/berkshelf",
     "docs changelog",
-    "#{bin_dir.join("rake")} install"
+    "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
+    "chef-infra-client",
     "chef",
-    "chef/chef",
     "server docgen maintenance pry integration ci chefstyle profile",
     chef_install_command,
     {
@@ -154,7 +170,7 @@ CHEFDK_APPS = [
     "chef-dk",
     "chef/chef-dk",
     "development test",
-    "#{bin_dir.join("bundle")} install",
+    "#{vendor_bin_dir.join("bundle")} install",
     {
       "chef" => %w{docgen chefstyle omnibus_package},
       "foodcritic" => %w{development test},
@@ -175,42 +191,42 @@ CHEFDK_APPS = [
     "chef-vault",
     "chef/chef-vault",
     "development",
-    "#{bin_dir.join("rake")} install"
+    "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
     "cookstyle",
     "chef/cookstyle",
     "development debug docs",
-    "#{bin_dir.join("rake")} install"
+    "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
     "foodcritic",
     "foodcritic/foodcritic",
     "development",
-    "#{bin_dir.join("rake")} install"
+    "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
     "inspec",
     "chef/inspec",
     "test integration tools maintenance deploy",
-    "#{bin_dir.join("rake")} install"
+    "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
     "ohai",
     "chef/ohai",
     "development docs debug",
-    "#{bin_dir.join("rake")} install"
+    "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
     "test-kitchen",
     "test-kitchen/test-kitchen",
     "changelog integration debug chefstyle docs",
-    "#{bin_dir.join("rake")} install"
+    "#{vendor_bin_dir.join("rake")} install"
   ),
 ].freeze
 
 class Updater
-  attr_reader :app, :ref, :tarball, :repo, :gems, :install_commands
+  attr_reader :app, :ref, :tarball, :origin, :repo, :gems, :install_commands
 
   def initialize(options)
     @app = options[:app]
@@ -219,6 +235,7 @@ class Updater
     @extra_bin_files = options[:extra_bin_files]
     @binstubs_source = options[:binstubs_source]
     @repo = options[:repo] || @app.repo
+    @origin = options[:origin] || @app.origin
     @gems = @app.gems
     @install_commands = @app.install_commands
   end
@@ -228,101 +245,102 @@ class Updater
       abort "#{$0} needs to be run as root user or with sudo"
     end
 
-    banner("Cleaning #{app} checkout")
-    app_dir.rmtree if app_dir.directory?
-
-    top_dir = chefdk.join("embedded/apps")
-    unless File.exist?(top_dir)
-      banner("Creating #{top_dir} directory")
-      FileUtils.mkdir_p top_dir
-    end
-
     install_package_dependencies
 
-    if  tarball
-      # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
-      # THE RUBY STDLIB BY DESIGN
-      git_url = "https://github.com/#{repo}/archive/#{ref}.tar.gz"
-      banner("Extracting #{app} from #{git_url}")
-      Dir.chdir(chefdk.join("embedded/apps")) do
-        Tempfile.open("appbundle-updater") do |tempfile|
-          tempfile.binmode
-          URI.open(git_url) do |uri|
-            tempfile.write(uri.read)
+    tmp_dir = Dir.mktmpdir
+    banner("Creating #{tmp_dir}/#{app.name} directory")
+    app_dir = File.join(tmp_dir, app.name.to_s)
+
+    begin
+      if  tarball
+        # NOTE: THIS IS DELIBERATELY PURE RUBY USING NO NATIVE GEMS AND ONLY
+        # THE RUBY STDLIB BY DESIGN
+        git_url = "https://github.com/#{repo}/archive/#{ref}.tar.gz"
+        banner("Extracting #{app} from #{git_url}")
+        Dir.chdir(tmp_dir) do
+          Tempfile.open("appbundle-updater") do |tempfile|
+            tempfile.binmode
+            URI.open(git_url) do |uri|
+              tempfile.write(uri.read)
+            end
+            tempfile.close
+            extract_tgz(tempfile.path)
           end
-          tempfile.close
-          extract_tgz(tempfile.path)
+          base = File.basename repo
+          FileUtils.mv Dir.glob("#{base}-*")[0], app.name.to_s
         end
-        base = File.basename repo
-        FileUtils.mv Dir.glob("#{base}-*")[0], "#{app.name}"
+      else
+        git_url = "https://github.com/#{repo}.git"
+        banner("Cloning #{app} from #{git_url}")
+        run("git clone #{git_url} #{app_dir}")
+  
+        banner("Checking out #{app} to #{ref}")
+        Dir.chdir(app_dir) do
+          run("git checkout #{ref}")
+        end
       end
-    else
-      git_url = "https://github.com/#{repo}.git"
-      banner("Cloning #{app} from #{git_url}")
-      run("git clone #{git_url} #{app_dir}")
-
-      banner("Checking out #{app} to #{ref}")
+  
+      banner("Installing dependencies")
       Dir.chdir(app_dir) do
-        run("git checkout #{ref}")
-      end
-    end
-
-    banner("Installing dependencies")
-    Dir.chdir(app_dir) do
-      cmd = "#{bin_dir.join("bundle")} install"
-      cmd += " --without #{app.bundle_without}" if app.bundle_without
-      ruby(cmd)
-    end
-
-    banner("Re-installing git-installed gems")
-    Dir.chdir(app_dir) do
-      ruby("post-bundle-install.rb #{chefdk}") if File.exist?("#{app_dir}/post-bundle-install.rb")
-    end
-
-    banner("Installing gem")
-    Dir.chdir(app_dir) do
-      Array(install_commands).each do |command|
-        ruby(command)
-      end
-    end
-
-    banner("Updating appbundler binstubs for #{app}")
-    if gems.empty?
-      Dir.chdir(app_dir) do
-        cmd = "#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")}"
-        cmd += " --extra-bin-files #{@extra_bin_files}" if @extra_bin_files
-        cmd += " --binstubs-source #{@binstubs_source}" if @binstubs_source
+        cmd = "#{vendor_bin_dir.join("bundle")} install"
+        cmd += " --without #{app.bundle_without}" if app.bundle_without
         ruby(cmd)
       end
-    else
-      gems.each do |gem_name, without|
+  
+      banner("Re-installing git-installed gems")
+      Dir.chdir(app_dir) do
+        ruby("post-bundle-install.rb #{bin_dir}") if File.exist?("#{app_dir}/post-bundle-install.rb")
+      end
+  
+      banner("Installing gem")
+      Dir.chdir(app_dir) do
+        Array(install_commands).each do |command|
+          ruby(command)
+        end
+      end
+  
+      banner("Updating appbundler binstubs for #{app}")
+      if gems.empty?
         Dir.chdir(app_dir) do
-          cmd = "#{bin_dir.join("appbundler")} #{app_dir} #{chefdk.join("bin")} #{gem_name}"
-          cmd += " --without #{without.join(",")}" if without
+          cmd = "#{vendor_bin_dir.join("appbundler")} #{app_dir} #{bin_dir}"
           cmd += " --extra-bin-files #{@extra_bin_files}" if @extra_bin_files
           cmd += " --binstubs-source #{@binstubs_source}" if @binstubs_source
           ruby(cmd)
         end
+      else
+        gems.each do |gem_name, without|
+          Dir.chdir(app_dir) do
+            cmd = "#{vendor_bin_dir.join("appbundler")} #{app_dir} #{bin_dir} #{gem_name}"
+            cmd += " --without #{without.join(",")}" if without
+            cmd += " --extra-bin-files #{@extra_bin_files}" if @extra_bin_files
+            cmd += " --binstubs-source #{@binstubs_source}" if @binstubs_source
+            ruby(cmd)
+          end
+        end
       end
+  
+      banner("Finished!")
+    rescue => e
+      puts 'aborting!!', e
+    else
+      banner('Finished successfully!')
+    ensure
+      FileUtils.remove_entry app_dir
     end
-
-    banner("Finished!")
   end
 
   private
-
-  def app_dir
-    chefdk.join("embedded/apps/#{app}")
-  end
 
   def banner(msg)
     puts "-----> #{msg}"
   end
 
   def ruby(script)
-    ruby = bin_dir.join("ruby").to_s.tap { |p| p.concat(".exe") if windows? }
+    # NOTE: this is sort of a 'hacky' way maybe to find which ruby binary to use?
+    ruby_path = File.read("#{pkg_path}/DEPS").split("\n").find { |l| l.start_with?("core/ruby") }
+    ruby_bin_path = habitat.join(ruby_path, "bin", "ruby").to_s.tap { |p| p.concat(".exe") if windows? }
 
-    run([ruby, script].join(" "))
+    run([ruby_bin_path, script].join(" "))
   end
 
 end
@@ -356,15 +374,16 @@ class CLI
       end
       opts.separator("")
       opts.separator("App names:")
-      CHEFDK_APPS.each { |a| opts.separator("    * #{a.name}") }
+      HABITAT_PACKAGES.each { |a| opts.separator("    * #{a.name}") }
     end
     @parser.parse!
     validate!
   end
 
   def validate!
+    # args: chef chef-infra-client main --tarball --github chef/chef
     die("PROJECT APP_NAME GIT_REF options are all required") if ARGV.length < 3
-    options[:app] = CHEFDK_APPS.find { |a| a.name == ARGV[1] }
+    options[:app] = HABITAT_PACKAGES.find { |a| a.name == ARGV[1] }
     die("Invalid APP_NAME: #{ARGV[1]}") if options[:app].nil?
     options[:ref] = ARGV[2]
   end
