@@ -88,7 +88,7 @@ TAR_LONGLINK = "././@LongLink".freeze
 
 def install_package_dependencies
   banner("Installing Packages")
-  case `#{bin_dir}/ohai platform_family` # rubocop: disable Lint/LiteralAsCondition
+  case `hab pkg exec #{ARGV[0]}/#{ARGV[1]} ohai platform_family` # rubocop: disable Lint/LiteralAsCondition
   when /debian/
     ENV["DEBIAN_FRONTEND"] = "noninteractive"
     run("apt-get -y update")
