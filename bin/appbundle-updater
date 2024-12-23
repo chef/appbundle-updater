@@ -151,7 +151,7 @@ App = Struct.new(:name, :origin, :bundle_without, :install_commands, :gems) do
   end
 end
 
-chef_install_command = "#{vendor_bin_dir.join("rake")} install:local --trace"
+chef_install_command = "#{vendor_bin_dir.join("rake")} install:local"
 
 HABITAT_PACKAGES = [
   App.new(
