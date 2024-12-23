@@ -30,9 +30,9 @@ end
 
 def habitat
   if windows?
-    Pathname.new(File.join(ENV['SYSTEMDRIVE'], 'hab', 'pkgs'))
+    Pathname.new(File.join(ENV["SYSTEMDRIVE"], "hab", "pkgs"))
   else
-    Pathname.new(File.join('/hab', 'pkgs'))
+    Pathname.new(File.join("/hab", "pkgs"))
   end
 end
 
@@ -40,22 +40,22 @@ end
 # example, /hab/pkgs/{ARGV[0]}/{ARGV[1]}/x.x.x/xxxxxxxxxxxxxx
 def pkg_path
   pkg_path = habitat.join(ARGV[0], ARGV[1])
-  version = Dir.glob("#{pkg_path}/*").sort.last
+  version = Dir.glob("#{pkg_path}/*").max
   raise "No existing installation found for #{ARGV[0]}/#{ARGV[1]} in #{pkg_path}" if version.nil?
 
   pkg_path = pkg_path.join(version)
-  build_no = Dir.glob("#{pkg_path}/*").sort.last
+  build_no = Dir.glob("#{pkg_path}/*").max
   raise "No existing installation found for #{ARGV[0]}/#{ARGV[1]}/#{version} in #{pkg_path}" if build_no.nil?
 
   pkg_path.join(build_no)
 end
 
 def vendor_bin_dir
-  pkg_path.join('vendor', 'bin')
+  pkg_path.join("vendor", "bin")
 end
 
 def bin_dir
-  pkg_path.join('bin')
+  pkg_path.join("bin")
 end
 
 def ruby_bin_path
@@ -279,7 +279,7 @@ class Updater
         git_url = "https://github.com/#{repo}.git"
         banner("Cloning #{app} from #{git_url}")
         run("git clone #{git_url} #{app_dir}")
-  
+
         banner("Checking out #{app} to #{ref}")
         Dir.chdir(app_dir) do
           run("git checkout #{ref}")
@@ -292,19 +292,19 @@ class Updater
         cmd += " --without #{app.bundle_without}" if app.bundle_without
         ruby(cmd)
       end
-  
+
       banner("Re-installing git-installed gems")
       Dir.chdir(app_dir) do
         ruby("post-bundle-install.rb #{bin_dir}") if File.exist?("#{app_dir}/post-bundle-install.rb")
       end
-  
+
       banner("Installing gem")
       Dir.chdir(app_dir) do
         Array(install_commands).each do |command|
           ruby(command)
         end
       end
-  
+
       banner("Updating appbundler binstubs for #{app}")
       if gems.empty?
         Dir.chdir(app_dir) do
@@ -324,14 +324,15 @@ class Updater
           end
         end
       end
-  
-      banner("Finished!")
+
     rescue => e
-      puts 'aborting!!', e
+      puts "aborting!!", e
     else
-      banner('Finished successfully!')
+      banner("Finished!")
     ensure
+      banner("Cleaning up #{app_dir}")
       FileUtils.remove_entry app_dir
+      banner("Done.")
     end
   end
 
