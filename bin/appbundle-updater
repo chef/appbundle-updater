@@ -60,7 +60,7 @@ end
 
 def ruby_pkg
   # NOTE: this is sort of a 'hacky' way maybe to find which ruby binary to use?
-  File.read("#{pkg_path}/DEPS").split("\n").find { |l| l.start_with?("core/ruby") }
+  File.read("#{pkg_path}/DEPS").split("\n").find { |l| l.start_with?(/(core|chef)\/ruby/) }
 end
 
 ENV["PATH"] = ( [ bin_dir ] + ENV["PATH"].split(File::PATH_SEPARATOR) ).join(File::PATH_SEPARATOR)
