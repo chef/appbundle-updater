@@ -1,16 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 1.0.38 -->
-## [v1.0.38](https://github.com/chef/appbundle-updater/tree/v1.0.38) (2025-01-28)
+<!-- latest_release 19.0.0 -->
+## [v19.0.0](https://github.com/chef/appbundle-updater/tree/v19.0.0) (2025-01-30)
 
 #### Merged Pull Requests
-- update ruby images to 3.0 and 3.1 [#108](https://github.com/chef/appbundle-updater/pull/108) ([rishichawda](https://github.com/rishichawda))
+- add release branches [#110](https://github.com/chef/appbundle-updater/pull/110) ([rishichawda](https://github.com/rishichawda))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.0.36 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- add release branches [#110](https://github.com/chef/appbundle-updater/pull/110) ([rishichawda](https://github.com/rishichawda)) <!-- 19.0.0 -->
 - update ruby images to 3.0 and 3.1 [#108](https://github.com/chef/appbundle-updater/pull/108) ([rishichawda](https://github.com/rishichawda)) <!-- 1.0.38 -->
 - update codeowners to include omnibus team &amp; some cleanup [#103](https://github.com/chef/appbundle-updater/pull/103) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 1.0.37 -->
 <!-- release_rollup -->

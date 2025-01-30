@@ -1,3 +1,3 @@
 module AppbundleUpdater
-  VERSION = "1.0.38".freeze
+  VERSION = "19.0.0".freeze
 end
