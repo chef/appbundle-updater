@@ -8,6 +8,12 @@ slack:
 rubygems:
   - appbundle-updater
 
+release_branches:
+  - main:
+      version_constraint: 19.*
+  - chef-18:
+      version_constraint: 1.*
+
 github:
   # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
