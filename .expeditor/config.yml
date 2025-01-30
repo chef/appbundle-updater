@@ -10,7 +10,7 @@ rubygems:
 
 release_branches:
   - main:
-      version_constraint: 2.*
+      version_constraint: 19.*
   - chef-18:
       version_constraint: 1.*
 
