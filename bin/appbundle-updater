@@ -155,7 +155,7 @@ chef_install_command = "#{vendor_bin_dir.join("rake")} install:local"
 HABITAT_PACKAGES = [
   App.new(
     "berkshelf",
-    "berkshelf/berkshelf",
+    "chef",
     "docs changelog",
     "#{vendor_bin_dir.join("rake")} install"
   ),
@@ -172,59 +172,32 @@ HABITAT_PACKAGES = [
     }
   ),
   App.new(
-    "chef-dk",
-    "chef/chef-dk",
-    "development test",
-    "#{vendor_bin_dir.join("bundle")} install",
-    {
-      "chef" => %w{docgen chefstyle omnibus_package},
-      "foodcritic" => %w{development test},
-      "test-kitchen" => %w{changelog debug docs development},
-      "inspec" =>  %w{deploy tools maintenance integration},
-      "chef-run" => %w{changelog docs debug},
-      "chef-cli" =>  %w{changelog docs debug},
-      "berkshelf" => %w{changelog docs debug development},
-      "chef-bin" => %w{changelog},
-      "chef-apply" => %w{changelog},
-      "chef-vault" => %w{changelog},
-      "ohai" => %w{changelog},
-      "opscode-pushy-client" => %w{changelog},
-      "cookstyle" => %w{changelog},
-    }
-  ),
-  App.new(
     "chef-vault",
-    "chef/chef-vault",
+    "chef",
     "development",
     "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
     "cookstyle",
-    "chef/cookstyle",
+    "chef",
     "development debug docs",
     "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
-    "foodcritic",
-    "foodcritic/foodcritic",
-    "development",
-    "#{vendor_bin_dir.join("rake")} install"
-  ),
-  App.new(
     "inspec",
-    "chef/inspec",
+    "chef",
     "test integration tools maintenance deploy",
     "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
     "ohai",
-    "chef/ohai",
+    "chef",
     "development docs debug",
     "#{vendor_bin_dir.join("rake")} install"
   ),
   App.new(
     "test-kitchen",
-    "test-kitchen/test-kitchen",
+    "chef",
     "changelog integration debug chefstyle docs",
     "#{vendor_bin_dir.join("rake")} install"
   ),
