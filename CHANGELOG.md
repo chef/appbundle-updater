@@ -1,16 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 19.0.1 -->
-## [v19.0.1](https://github.com/chef/appbundle-updater/tree/v19.0.1) (2025-02-10)
+<!-- latest_release 19.0.2 -->
+## [v19.0.2](https://github.com/chef/appbundle-updater/tree/v19.0.2) (2025-02-11)
 
 #### Merged Pull Requests
-- Add rc tag to the gem from gemspec instead of from VERSION file [#115](https://github.com/chef/appbundle-updater/pull/115) ([neha-p6](https://github.com/neha-p6))
+- Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.0.36 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.2 -->
 - Add rc tag to the gem from gemspec instead of from VERSION file [#115](https://github.com/chef/appbundle-updater/pull/115) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.1 -->
 - Add rc tag to the gem from gemspec instead of from VERSION file [#113](https://github.com/chef/appbundle-updater/pull/113) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.1 -->
 - use habitat build instead of omnibus [#107](https://github.com/chef/appbundle-updater/pull/107) ([rishichawda](https://github.com/rishichawda)) <!-- 19.0.1 -->
