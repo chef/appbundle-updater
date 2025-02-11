@@ -4,7 +4,7 @@ require "appbundle_updater/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "appbundle-updater"
-  spec.version       = "#{AppbundleUpdater::VERSION}.rc1"
+  spec.version       = "#{AppbundleUpdater::VERSION}.rc.1"
   spec.authors       = ["lamont-granquist"]
   spec.email         = ["lamont@chef.io"]
   spec.description   = %q{Updates appbundled apps in Chef's omnibus packages}
