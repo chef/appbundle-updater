@@ -7,20 +7,25 @@
 - Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6))
 <!-- latest_release -->
 
-<!-- release_rollup since=1.0.36 -->
+<!-- release_rollup since=19.0.2.rc.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
 - Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.2 -->
-- Add rc tag to the gem from gemspec instead of from VERSION file [#115](https://github.com/chef/appbundle-updater/pull/115) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.1 -->
-- Add rc tag to the gem from gemspec instead of from VERSION file [#113](https://github.com/chef/appbundle-updater/pull/113) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.1 -->
-- use habitat build instead of omnibus [#107](https://github.com/chef/appbundle-updater/pull/107) ([rishichawda](https://github.com/rishichawda)) <!-- 19.0.1 -->
-- add release branches [#110](https://github.com/chef/appbundle-updater/pull/110) ([rishichawda](https://github.com/rishichawda)) <!-- 19.0.0 -->
-- update ruby images to 3.0 and 3.1 [#108](https://github.com/chef/appbundle-updater/pull/108) ([rishichawda](https://github.com/rishichawda)) <!-- 1.0.38 -->
-- update codeowners to include omnibus team &amp; some cleanup [#103](https://github.com/chef/appbundle-updater/pull/103) ([vkarve-chef](https://github.com/vkarve-chef)) <!-- 1.0.37 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v19.0.2.rc.1](https://github.com/chef/appbundle-updater/tree/v19.0.2.rc.1) (2025-02-11)
+
+#### Merged Pull Requests
+- update codeowners to include omnibus team &amp; some cleanup [#103](https://github.com/chef/appbundle-updater/pull/103) ([vkarve-chef](https://github.com/vkarve-chef))
+- update ruby images to 3.0 and 3.1 [#108](https://github.com/chef/appbundle-updater/pull/108) ([rishichawda](https://github.com/rishichawda))
+- add release branches [#110](https://github.com/chef/appbundle-updater/pull/110) ([rishichawda](https://github.com/rishichawda))
+- use habitat build instead of omnibus [#107](https://github.com/chef/appbundle-updater/pull/107) ([rishichawda](https://github.com/rishichawda))
+- Add rc tag to the gem from gemspec instead of from VERSION file [#113](https://github.com/chef/appbundle-updater/pull/113) ([neha-p6](https://github.com/neha-p6))
+- Add rc tag to the gem from gemspec instead of from VERSION file [#115](https://github.com/chef/appbundle-updater/pull/115) ([neha-p6](https://github.com/neha-p6))
+<!-- latest_stable_release -->
+
 ## [v1.0.36](https://github.com/chef/appbundle-updater/tree/v1.0.36) (2022-02-09)
 
 #### Merged Pull Requests
@@ -37,7 +42,6 @@
 - Need a version bump for release [#97](https://github.com/chef/appbundle-updater/pull/97) ([lamont-granquist](https://github.com/lamont-granquist))
 - Update chefstyle requirement from 2.1.3 to 2.2.0 [#98](https://github.com/chef/appbundle-updater/pull/98) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - Use rake install:local [#100](https://github.com/chef/appbundle-updater/pull/100) ([lamont-granquist](https://github.com/lamont-granquist))
-<!-- latest_stable_release -->
 
 ## [v1.0.23](https://github.com/chef/appbundle-updater/tree/v1.0.23) (2021-03-16)
 
