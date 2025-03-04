@@ -1,16 +1,17 @@
 # appbundle-updater Change Log
 
-<!-- latest_release 19.0.2 -->
-## [v19.0.2](https://github.com/chef/appbundle-updater/tree/v19.0.2) (2025-02-11)
+<!-- latest_release 19.0.3 -->
+## [v19.0.3](https://github.com/chef/appbundle-updater/tree/v19.0.3) (2025-03-04)
 
 #### Merged Pull Requests
-- Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6))
+- Skip inspec-core-bin for 19 [#117](https://github.com/chef/appbundle-updater/pull/117) ([tpowell-progress](https://github.com/tpowell-progress))
 <!-- latest_release -->
 
 <!-- release_rollup since=19.0.2.rc.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Skip inspec-core-bin for 19 [#117](https://github.com/chef/appbundle-updater/pull/117) ([tpowell-progress](https://github.com/tpowell-progress)) <!-- 19.0.3 -->
 - Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.2 -->
 <!-- release_rollup -->
 
