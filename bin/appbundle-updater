@@ -168,7 +168,7 @@ HABITAT_PACKAGES = [
       "chef" => %w{docgen chefstyle},
       "chef-bin" => %w{development},
       "ohai" =>  %w{development docs debug profile},
-      "inspec-core-bin" =>  %w{development},
+      # "inspec-core-bin" => %w{development}, # <== temporary? for RC version
     }
   ),
   App.new(
