@@ -203,6 +203,11 @@ HABITAT_PACKAGES = [
   ),
 ].freeze
 
+def bundler_from_ruby_pkg
+  ruby_path = `hab pkg path #{ruby_pkg}`.strip
+  File.join(ruby_path, "bin", "bundle")
+end
+
 class Updater
   attr_reader :app, :ref, :tarball, :origin, :repo, :gems, :install_commands
 
@@ -260,7 +265,10 @@ class Updater
 
       banner("Installing dependencies")
       Dir.chdir(app_dir) do
-        cmd = "#{vendor_bin_dir.join("bundle")} install"
+        # Use the bundler from Ruby package instead of from vendor/bin
+        bundle_executable = bundler_from_ruby_pkg
+        banner("Using bundler from Ruby package: #{bundle_executable}")
+        cmd = "#{bundle_executable} install"
         cmd += " --without #{app.bundle_without}" if app.bundle_without
         ruby(cmd)
       end
