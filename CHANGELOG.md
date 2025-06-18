@@ -7,16 +7,21 @@
 - Use bundler binary from ruby package instead of from vendor/gems as it&#39;s no longer there [#120](https://github.com/chef/appbundle-updater/pull/120) ([neha-p6](https://github.com/neha-p6))
 <!-- latest_release -->
 
-<!-- release_rollup since=19.0.2.rc.1 -->
+<!-- release_rollup since=19.0.4.rc1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
 - Use bundler binary from ruby package instead of from vendor/gems as it&#39;s no longer there [#120](https://github.com/chef/appbundle-updater/pull/120) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.4 -->
-- Skip inspec-core-bin for 19 [#117](https://github.com/chef/appbundle-updater/pull/117) ([tpowell-progress](https://github.com/tpowell-progress)) <!-- 19.0.3 -->
-- Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6)) <!-- 19.0.2 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v19.0.4.rc1](https://github.com/chef/appbundle-updater/tree/v19.0.4.rc1) (2025-06-18)
+
+#### Merged Pull Requests
+- Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6))
+- Skip inspec-core-bin for 19 [#117](https://github.com/chef/appbundle-updater/pull/117) ([tpowell-progress](https://github.com/tpowell-progress))
+<!-- latest_stable_release -->
+
 ## [v19.0.2.rc.1](https://github.com/chef/appbundle-updater/tree/v19.0.2.rc.1) (2025-02-11)
 
 #### Merged Pull Requests
@@ -26,7 +31,6 @@
 - use habitat build instead of omnibus [#107](https://github.com/chef/appbundle-updater/pull/107) ([rishichawda](https://github.com/rishichawda))
 - Add rc tag to the gem from gemspec instead of from VERSION file [#113](https://github.com/chef/appbundle-updater/pull/113) ([neha-p6](https://github.com/neha-p6))
 - Add rc tag to the gem from gemspec instead of from VERSION file [#115](https://github.com/chef/appbundle-updater/pull/115) ([neha-p6](https://github.com/neha-p6))
-<!-- latest_stable_release -->
 
 ## [v1.0.36](https://github.com/chef/appbundle-updater/tree/v1.0.36) (2022-02-09)
 
