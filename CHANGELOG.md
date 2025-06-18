@@ -7,7 +7,7 @@
 - Use bundler binary from ruby package instead of from vendor/gems as it&#39;s no longer there [#120](https://github.com/chef/appbundle-updater/pull/120) ([neha-p6](https://github.com/neha-p6))
 <!-- latest_release -->
 
-<!-- release_rollup since=19.0.4.rc1 -->
+<!-- release_rollup since=19.0.4.rc.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
@@ -15,12 +15,14 @@
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v19.0.4.rc.1](https://github.com/chef/appbundle-updater/tree/v19.0.4.rc.1) (2025-06-18)
+<!-- latest_stable_release -->
+
 ## [v19.0.4.rc1](https://github.com/chef/appbundle-updater/tree/v19.0.4.rc1) (2025-06-18)
 
 #### Merged Pull Requests
 - Delimit rc and version no as rc.1 in gemspec as using &#39;rc1&#39; has not pushed the gem to artifactory [#116](https://github.com/chef/appbundle-updater/pull/116) ([neha-p6](https://github.com/neha-p6))
 - Skip inspec-core-bin for 19 [#117](https://github.com/chef/appbundle-updater/pull/117) ([tpowell-progress](https://github.com/tpowell-progress))
-<!-- latest_stable_release -->
 
 ## [v19.0.2.rc.1](https://github.com/chef/appbundle-updater/tree/v19.0.2.rc.1) (2025-02-11)
 
