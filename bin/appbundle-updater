@@ -265,8 +265,8 @@ class Updater
 
       banner("Installing dependencies")
       Dir.chdir(app_dir) do
-        banner("Running bundle install**")
-        cmd = "bundle install"
+        banner("Running bundle install***")
+        cmd = "-S bundle install"
         if app.bundle_without
           cmd += " --without #{app.bundle_without}"
         end
