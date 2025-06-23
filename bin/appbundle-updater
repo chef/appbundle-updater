@@ -267,10 +267,12 @@ class Updater
       Dir.chdir(app_dir) do
         # Use the bundler from Ruby package instead of from vendor/bin
         bundle_executable = bundler_from_ruby_pkg
-        banner("Using bundler from Ruby package: #{bundle_executable}")
-        cmd = "#{bundle_executable} install"
-        cmd += " --without #{app.bundle_without}" if app.bundle_without
-        ruby(cmd)
+        banner("Using bundler from Ruby package******** #{bundle_executable}")
+        bundle_cmd = "hab pkg exec #{ruby_pkg} bundle install"
+        if app.bundle_without
+          bundle_cmd += " --without #{app.bundle_without}"
+        end
+        run(bundle_cmd)
       end
 
       banner("Re-installing git-installed gems")
