@@ -2,14 +2,6 @@
 [![Build status](https://badge.buildkite.com/0d8c5acd906f8477d39b49680f28aa818149dd255ffdabf86f.svg?branch=master)](https://buildkite.com/chef-oss/chef-appbundle-updater-master-verify)
 [![Gem Version](https://badge.fury.io/rb/appbundle-updater.svg)](https://badge.fury.io/rb/appbundle-updater)
 
-**Umbrella Project**: [Chef Foundation](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-foundation.md)
-
-**Project State**: [Active](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md#active)
-
-**Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 14 days
-
-**Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md)**: 14 days
-
 Helper to update Chef and Chef-DK appbundle'd apps inside of an omnibus bundle.
 
 ## Requirements
