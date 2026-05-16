@@ -121,3 +121,7 @@ Apache 2.0 (see [LICENSE][license])
 [fnichol]:      https://github.com/fnichol
 [repo]:         https://github.com/chef/appbundle-updater
 [issues]:       https://github.com/chef/appbundle-updater/issues
+
+# Copyright
+
+See [COPYRIGHT.md](./COPYRIGHT.md).
